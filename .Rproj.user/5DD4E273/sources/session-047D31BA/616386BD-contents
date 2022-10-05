@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "R Stats Bootcamp"
+  sidebar:
+#    logo: 
+    style: "docked"
+    search: true
+    contents: 
+      - section: "Information"
+        contents:
+          - index.qmd
+format:
+  html:
+    highlight-style: a11y
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+
+editor: visual
