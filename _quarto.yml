@@ -5,7 +5,7 @@ project:
 website:
   title: "R Stats Bootcamp"
   sidebar:
-    logo: "img/C7041-pad.png"
+    logo: "img/C7041.png"
     style: "docked"
     search: true
     contents: 

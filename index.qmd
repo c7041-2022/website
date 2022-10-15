@@ -8,7 +8,7 @@ title: "Home"
 
 <br>
 
-![](img/C7041-slide.png){width="400"}
+![](img/C7041-slide.png){width="400px"}
 </center>
 
 <br>
