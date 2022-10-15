@@ -4,7 +4,13 @@ title: "Home"
 
 ## C7041 Experimental Design and Analysis
 
-![](img/C7041-slide.png){fig-alt="C7041 title slide" fig-align="center" width="400"}
+<center>
+
+<br>
+
+![](img/C7041-slide.png){width="400"}
+</center>
+
 <br>
 
 **Welcome to C7041**. This module is an introduction to statistical analysis and experimental design reviewing basic statistics and introducing linear models, the modern standard for creating and consuming scientific evidence. There is an emphasis on practical applications using a series of **data examples** and **lab exercises**, along with **lectures** on selected topics and **readings**. A prerequisite is a familiarity with the `R` language and simple statistics, like that covered in the [R Stats Bootcamp](https://rstats-bootcamp.github.io/website/).

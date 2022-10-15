@@ -4,63 +4,63 @@ title: "Schedule"
 
 ## Calendar of resources
 
-The material in this module is designed to be experienced in an intensive one week format followed by an assessment meant to showcase reprodicuble statistical analysis skills. For enrolled students, the work will be supported with several live sessions during the main week of delivery.
+The material in this module is designed to be experienced in an intensive one week format followed by an assessment meant to showcase reproducible statistical analysis skills. For enrolled students, the work will be supported with several live sessions during the main week of delivery.
 
 <br>
 
-+-------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
-| Day   | Topics                                                                                                    | Labs                        |
-+=======+===========================================================================================================+=============================+
-| Mon   | ![](img/pptx.png){width="25" height="23"} 00 Module overview                                              | Lab 01 Graphing I           |
-|       |                                                                                                           |                             |
-| am    | ![](img/pptx.png){width="25" height="23"} 01 Introduction part 1 ![](img/vid.png){width="25" height="21"} | Lab 02 Describing data      |
-|       |                                                                                                           |                             |
-| pm    | ![](img/pptx.png){width="25" height="23"} 02 Graph basics ![](img/vid.png){width="25" height="21"}        | Lab 03 Frequency data       |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 04 Estimation ![](img/vid.png){width="25" height="21"}          |                             |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 05 Probability ![](img/vid.png){width="25" height="21"}         |                             |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 06 Hypothesis testing ![](img/vid.png){width="25" height="21"}  |                             |
-+-------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
-| Tues  | ![](img/pptx.png){width="25" height="23"} 07 Analyzing proportion data                                    | Lab 04 Contingency analysis |
-|       |                                                                                                           |                             |
-| am    | ![](img/pptx.png){width="25" height="23"} 08 Discrete data                                                | Lab 05 The Gaussian dist    |
-|       |                                                                                                           |                             |
-| pm    | ![](img/pptx.png){width="25" height="23"} 09 Contingency tables                                           | Lab 06 2 group tests        |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 10 Gaussian distribution                                        |                             |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 11 One-sample tests                                             |                             |
-+-------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
-| Wed   | ![](img/pptx.png){width="25" height="23"} 12 Two sample tests                                             | Lab 07 ANOVA                |
-|       |                                                                                                           |                             |
-| am    | ![](img/pptx.png){width="25" height="23"} 13 Testing assumptions                                          | Lab 08 Cor and reg          |
-|       |                                                                                                           |                             |
-| pm    | ![](img/pptx.png){width="25" height="23"} 14 Experimental design I                                        | Lab 09 Graphing II          |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 15 ANOVA                                                        |                             |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 16 Correlation                                                  |                             |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 17 Regression                                                   |                             |
-+-------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
-| Thurs | ![](img/pptx.png){width="25" height="23"} 18 Introduction part 2                                          | Lab 10 Sample size          |
-|       |                                                                                                           |                             |
-| am    | ![](img/pptx.png){width="25" height="23"} 19 Graphing II                                                  | Lab 11 Linear models        |
-|       |                                                                                                           |                             |
-| pm    | ![](img/pptx.png){width="25" height="23"} 20 Experimental design II                                       | Lab 12 Mixed effects        |
-+-------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
-| Fri   | ![](img/pptx.png){width="25" height="23"} 21 Linear models                                                | Lab 13 Likelihood           |
-|       |                                                                                                           |                             |
-| am    | ![](img/pptx.png){width="25" height="23"} 22 Mixed effects models                                         | Lab 14 GLM                  |
-|       |                                                                                                           |                             |
-| pm    | ![](img/pptx.png){width="25" height="23"} 23 Likelihood                                                   | Lab 15 Model selection      |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 24 Generalized linear model                                     |                             |
-|       |                                                                                                           |                             |
-|       | ![](img/pptx.png){width="25" height="23"} 25 Model selection                                              |                             |
-+-------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
++-----------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
+| Day       | Topics                                                                                                    | Labs                        |
++===========+===========================================================================================================+=============================+
+| Mon       | ![](img/pptx.png){width="25" height="23"} 00 Module overview                                              | Lab 01 Graphing I           |
+|           |                                                                                                           |                             |
+| am        | ![](img/pptx.png){width="25" height="23"} 01 Introduction part 1 ![](img/vid.png){width="25" height="21"} | Lab 02 Describing data      |
+|           |                                                                                                           |                             |
+| pm        | ![](img/pptx.png){width="25" height="23"} 02 Graph basics ![](img/vid.png){width="25" height="21"}        | Lab 03 Frequency data       |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 04 Estimation ![](img/vid.png){width="25" height="21"}          |                             |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 05 Probability ![](img/vid.png){width="25" height="21"}         |                             |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 06 Hypothesis testing ![](img/vid.png){width="25" height="21"}  |                             |
++-----------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
+| Tues      | ![](img/pptx.png){width="25" height="23"} 07 Analyzing proportion data                                    | Lab 04 Contingency analysis |
+|           |                                                                                                           |                             |
+| am        | ![](img/pptx.png){width="25" height="23"} 08 Discrete data                                                | Lab 05 The Gaussian dist    |
+|           |                                                                                                           |                             |
+| pm        | ![](img/pptx.png){width="25" height="23"} 09 Contingency tables                                           | Lab 06 2 group tests        |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 10 Gaussian distribution                                        |                             |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 11 One-sample tests                                             |                             |
++-----------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
+| Wed       | ![](img/pptx.png){width="25" height="23"} 12 Two sample tests                                             | Lab 07 ANOVA                |
+|           |                                                                                                           |                             |
+| am        | ![](img/pptx.png){width="25" height="23"} 13 Testing assumptions                                          | Lab 08 Cor and reg          |
+|           |                                                                                                           |                             |
+| pm        | ![](img/pptx.png){width="25" height="23"} 14 Experimental design I                                        | Lab 09 Graphing II          |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 15 ANOVA                                                        |                             |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 16 Correlation                                                  |                             |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 17 Regression                                                   |                             |
++-----------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
+| Thurs     | ![](img/pptx.png){width="25" height="23"} 18 Introduction part 2                                          | Lab 10 Sample size          |
+|           |                                                                                                           |                             |
+| am        | ![](img/pptx.png){width="25" height="23"} 19 Graphing II                                                  | Lab 11 Linear models        |
+|           |                                                                                                           |                             |
+| pm        | ![](img/pptx.png){width="25" height="23"} 20 Experimental design II                                       | Lab 12 Mixed effects        |
++-----------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
+| Fri       | ![](img/pptx.png){width="25" height="23"} 21 Linear models                                                | Lab 13 Likelihood           |
+|           |                                                                                                           |                             |
+| am        | ![](img/pptx.png){width="25" height="23"} 22 Mixed effects models                                         | Lab 14 GLM                  |
+|           |                                                                                                           |                             |
+| pm        | ![](img/pptx.png){width="25" height="23"} 23 Likelihood                                                   | Lab 15 Model selection      |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 24 Generalized linear model                                     |                             |
+|           |                                                                                                           |                             |
+|           | ![](img/pptx.png){width="25" height="23"} 25 Model selection                                              |                             |
++-----------+-----------------------------------------------------------------------------------------------------------+-----------------------------+
 
 <br><br>
 
