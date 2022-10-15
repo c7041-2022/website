@@ -1,17 +1,136 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "website",
-    "section": "",
-    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "mysite",
     "section": "",
     "text": "Hello world"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Welcome to C7041. This module is an introduction to statistical analysis and experimental design reviewing basic statistics and introducing linear models, the modern standard for creating and consuming scientific evidence. There is an emphasis on practical applications using a series of data examples and lab exercises, along with lectures on selected topics and readings. A prerequisite is a familiarity with the R language and simple statistics, like that covered in the R Stats Bootcamp."
+  },
+  {
+    "objectID": "index.html#c7041-resources",
+    "href": "index.html#c7041-resources",
+    "title": "Home",
+    "section": "C7041 Resources",
+    "text": "C7041 Resources\n\nR Stats Bootcamp\nFree Textbook option: Diez et al., 2019. OpenIntro Statistics 4ed\nAlternative Textbook option (not free): Whitlock & Schluter, 2020. The Analysis of Biological Data 3ed"
+  },
+  {
+    "objectID": "index.html#harper-adams-data-science",
+    "href": "index.html#harper-adams-data-science",
+    "title": "Home",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab01-graph1.html#harper-adams-data-science",
+    "href": "lab01-graph1.html#harper-adams-data-science",
+    "title": "Lab 01 Graphs I",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab02-descriptives.html#harper-adams-data-science",
+    "href": "lab02-descriptives.html#harper-adams-data-science",
+    "title": "Lab 02 Describing data",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab03-frequency.html#harper-adams-data-science",
+    "href": "lab03-frequency.html#harper-adams-data-science",
+    "title": "Lab 03 Frequency data",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab04-contingency.html#harper-adams-data-science",
+    "href": "lab04-contingency.html#harper-adams-data-science",
+    "title": "Lab 04 Contingency",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab05-Gaussian.html#harper-adams-data-science",
+    "href": "lab05-Gaussian.html#harper-adams-data-science",
+    "title": "Lab 05 The Gaussian",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab06-2-groups.html#harper-adams-data-science",
+    "href": "lab06-2-groups.html#harper-adams-data-science",
+    "title": "Lab 06 Two-group tests",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab07-ANOVA.html#harper-adams-data-science",
+    "href": "lab07-ANOVA.html#harper-adams-data-science",
+    "title": "Lab 07 ANOVA",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab08-cor-reg.html#harper-adams-data-science",
+    "href": "lab08-cor-reg.html#harper-adams-data-science",
+    "title": "Lab 08 Correlation and regression",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab09-graph2.html#harper-adams-data-science",
+    "href": "lab09-graph2.html#harper-adams-data-science",
+    "title": "Lab 09 Graphing II",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab10-sample-size.html#harper-adams-data-science",
+    "href": "lab10-sample-size.html#harper-adams-data-science",
+    "title": "Lab 10 Sample size",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab11-linear-mods.html#harper-adams-data-science",
+    "href": "lab11-linear-mods.html#harper-adams-data-science",
+    "title": "Lab 11 Linear models",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab12-mixed-effects.html#harper-adams-data-science",
+    "href": "lab12-mixed-effects.html#harper-adams-data-science",
+    "title": "Lab 12 Mixed effects",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab13-likelihood.html#harper-adams-data-science",
+    "href": "lab13-likelihood.html#harper-adams-data-science",
+    "title": "Lab 13 Likelihood",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab14-GLM.html#harper-adams-data-science",
+    "href": "lab14-GLM.html#harper-adams-data-science",
+    "title": "Lab 14 GLM",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab15-model-selection.html#harper-adams-data-science",
+    "href": "lab15-model-selection.html#harper-adams-data-science",
+    "title": "Lab 15 Model selection",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
   },
   {
     "objectID": "schedule.html",
@@ -24,27 +143,6 @@
     "objectID": "schedule.html#harper-adams-data-science",
     "href": "schedule.html#harper-adams-data-science",
     "title": "Schedule",
-    "section": "Harper Adams Data Science",
-    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
-  },
-  {
-    "objectID": "lab15-model-selection.html#harper-adams-data-science",
-    "href": "lab15-model-selection.html#harper-adams-data-science",
-    "title": "Lab 15 Model selection",
-    "section": "Harper Adams Data Science",
-    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
-  },
-  {
-    "objectID": "lab10-sample-size.html#harper-adams-data-science",
-    "href": "lab10-sample-size.html#harper-adams-data-science",
-    "title": "Lab 10 Sample size",
-    "section": "Harper Adams Data Science",
-    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
-  },
-  {
-    "objectID": "lab14-GLM.html#harper-adams-data-science",
-    "href": "lab14-GLM.html#harper-adams-data-science",
-    "title": "Lab 14 GLM",
     "section": "Harper Adams Data Science",
     "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
   }

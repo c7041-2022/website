@@ -2,7 +2,7 @@
 title: "Home"
 ---
 
-## C7081 Statistical analysis for data science
+## C7041 Experimental Design and Analysis
 
 ![](img/C7041-slide.png){fig-alt="C7041 title slide" fig-align="center" width="400"}
 <br>
