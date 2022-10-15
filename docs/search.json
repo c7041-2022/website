@@ -12,5 +12,40 @@
     "title": "mysite",
     "section": "",
     "text": "Hello world"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "The material in this module is designed to be experienced in an intensive one week format followed by an assessment meant to showcase reprodicuble statistical analysis skills. For enrolled students, the work will be supported with several live sessions during the main week of delivery.\n\n\n\n\n\n\n\n\n\nDay\nTopics\nLabs\n\n\n\n\nMon\nam\npm\n 00 Module overview\n 01 Introduction part 1 \n 02 Graph basics \n 04 Estimation \n 05 Probability \n 06 Hypothesis testing \nLab 01 Graphing I\nLab 02 Describing data\nLab 03 Frequency data\n\n\nTues\nam\npm\n 07 Analyzing proportion data\n 08 Discrete data\n 09 Contingency tables\n 10 Gaussian distribution\n 11 One-sample tests\nLab 04 Contingency analysis\nLab 05 The Gaussian dist\nLab 06 2 group tests\n\n\nWed\nam\npm\n 12 Two sample tests\n 13 Testing assumptions\n 14 Experimental design I\n 15 ANOVA\n 16 Correlation\n 17 Regression\nLab 07 ANOVA\nLab 08 Cor and reg\nLab 09 Graphing II\n\n\nThurs\nam\npm\n 18 Introduction part 2\n 19 Graphing II\n 20 Experimental design II\nLab 10 Sample size\nLab 11 Linear models\nLab 12 Mixed effects\n\n\nFri\nam\npm\n 21 Linear models\n 22 Mixed effects models\n 23 Likelihood\n 24 Generalized linear model\n 25 Model selection\nLab 13 Likelihood\nLab 14 GLM\nLab 15 Model selection"
+  },
+  {
+    "objectID": "schedule.html#harper-adams-data-science",
+    "href": "schedule.html#harper-adams-data-science",
+    "title": "Schedule",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab15-model-selection.html#harper-adams-data-science",
+    "href": "lab15-model-selection.html#harper-adams-data-science",
+    "title": "Lab 15 Model selection",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab10-sample-size.html#harper-adams-data-science",
+    "href": "lab10-sample-size.html#harper-adams-data-science",
+    "title": "Lab 10 Sample size",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
+  },
+  {
+    "objectID": "lab14-GLM.html#harper-adams-data-science",
+    "href": "lab14-GLM.html#harper-adams-data-science",
+    "title": "Lab 14 GLM",
+    "section": "Harper Adams Data Science",
+    "text": "Harper Adams Data Science\n\nThis module is a part of the MSc in Data Science for Global Agriculture, Food, and Environment at Harper Adams University, led by Ed Harris."
   }
 ]

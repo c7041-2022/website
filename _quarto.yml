@@ -5,13 +5,34 @@ project:
 website:
   title: "R Stats Bootcamp"
   sidebar:
-#    logo: 
+    logo: "img/C7041-pad.png"
     style: "docked"
     search: true
     contents: 
       - section: "Information"
         contents:
           - index.qmd
+          - schedule.qmd
+      - section: "Part I"
+        contents:
+          - lab01-graph1.qmd
+          - lab02-descriptives.qmd
+          - lab03-frequency.qmd
+          - lab04-contingency.qmd
+          - lab05-Gaussian.qmd
+          - lab06-2-groups.qmd
+          - lab07-ANOVA.qmd
+          - lab08-cor-reg.qmd
+      - section: "Part II"
+        contents:
+          - lab09-graph2.qmd
+          - lab10-sample-size.qmd
+          - lab11-linear-mods.qmd
+          - lab12-mixed-effects.qmd
+          - lab13-likelihood.qmd
+          - lab14-GLM.qmd
+          - lab15-model-selection.qmd
+
 format:
   html:
     highlight-style: a11y
