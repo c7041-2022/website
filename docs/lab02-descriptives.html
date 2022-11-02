@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -61,6 +124,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -221,7 +285,37 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">1 Objectives</a></li>
+  <li><a href="#start-a-script" id="toc-start-a-script" class="nav-link" data-scroll-target="#start-a-script">2 Start a script!</a></li>
+  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">3 Missing data</a></li>
+  <li><a href="#measures-of-location" id="toc-measures-of-location" class="nav-link" data-scroll-target="#measures-of-location">4 Measures of location</a>
+  <ul class="collapse">
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">4.1 <code>mean()</code></a></li>
+  <li><a href="#na.rm-true" id="toc-na.rm-true" class="nav-link" data-scroll-target="#na.rm-true">4.2 <code>na.rm = TRUE</code></a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">4.3 <code>median()</code></a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">4.4 <code>summary()</code></a></li>
+  </ul></li>
+  <li><a href="#measures-of-variability" id="toc-measures-of-variability" class="nav-link" data-scroll-target="#measures-of-variability">5 Measures of variability</a>
+  <ul class="collapse">
+  <li><a href="#var" id="toc-var" class="nav-link" data-scroll-target="#var">5.1 <code>var()</code></a></li>
+  <li><a href="#sd" id="toc-sd" class="nav-link" data-scroll-target="#sd">5.2 <code>sd()</code></a></li>
+  <li><a href="#coefficient-of-variation" id="toc-coefficient-of-variation" class="nav-link" data-scroll-target="#coefficient-of-variation">5.3 Coefficient of variation</a></li>
+  <li><a href="#iqr" id="toc-iqr" class="nav-link" data-scroll-target="#iqr">5.4 <code>IQR()</code></a></li>
+  <li><a href="#confidence-intervals-ci-of-the-mean" id="toc-confidence-intervals-ci-of-the-mean" class="nav-link" data-scroll-target="#confidence-intervals-ci-of-the-mean">5.5 Confidence intervals (CI) of the mean</a></li>
+  </ul></li>
+  <li><a href="#sampling-exercise" id="toc-sampling-exercise" class="nav-link" data-scroll-target="#sampling-exercise">6 Sampling exercise</a>
+  <ul class="collapse">
+  <li><a href="#distribution-of-sample-means" id="toc-distribution-of-sample-means" class="nav-link" data-scroll-target="#distribution-of-sample-means">6.1 Distribution of sample means</a></li>
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">6.2 Confidence intervals</a></li>
+  </ul></li>
+  <li><a href="#challenge-questions" id="toc-challenge-questions" class="nav-link" data-scroll-target="#challenge-questions">7 Challenge questions</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">7.1</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">7.2</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">7.3</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">7.4</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">7.5</a></li>
+  </ul></li>
   <li><a href="#harper-adams-data-science" id="toc-harper-adams-data-science" class="nav-link" data-scroll-target="#harper-adams-data-science">Harper Adams Data Science</a></li>
   </ul>
 </nav>
@@ -245,9 +339,436 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab02-bat.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">Long tongue</figcaption><p></p>
+</figure>
+</div>
+</center>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">1 Objectives</h2>
+<ul>
+<li><p>Investigate sampling error; see that larger samples have less sampling error</p></li>
+<li><p>Visualize confidence intervals</p></li>
+<li><p>Calculate basic summary statistics using R</p></li>
+<li><p>Calculate confidence intervals for the mean with R</p></li>
+</ul>
+<p><br></p>
+<p><a href="data/c7041-lab-data.zip">Data for all labs (unzip to your working directory)</a></p>
+<p><a href="scripts/template_script.R">Template script</a></p>
+<p><br></p>
+</section>
+<section id="start-a-script" class="level2">
+<h2 class="anchored" data-anchor-id="start-a-script">2 Start a script!</h2>
+<p>For this and every lab or project, begin by:</p>
+<ul>
+<li><p><strong>starting a new script</strong></p></li>
+<li><p><strong>create a good header section and table of contents</strong></p></li>
+<li><p><strong>save the script file with an informative name</strong></p></li>
+<li><p><strong>set your working directory</strong></p></li>
+</ul>
+<p>Aim to make the script useful as a future reference for doing things in <code>R</code> - this will come in handy for projects and assessments!</p>
+<p><br></p>
+</section>
+<section id="missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="missing-data">3 Missing data</h2>
+<p>Sometimes we do not have all variables measured on all individuals in the data set. When this happens, we need a space holder in our data files so that <code>R</code> knows that the data is missing. The standard way of doing this in <code>R</code> is to put <code>NA</code> in the location that the data would have gone. <code>NA</code> is short for “not available”.</p>
+<p>For example, in the <code>Titanic</code> data set, we do not know the age of several passengers. Let’s look at it. Load the Titanic data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># NB your file path may be different than mine</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>titanicData <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/titanic.csv"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Have <code>R</code> print out the vector of the age variable, which you can do easily by just typing its name:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print the variable age</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>titanicData<span class="sc">$</span>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [1] 29.0000  2.0000 30.0000 25.0000  0.9167 47.0000 63.0000 39.0000 58.0000
+  [10] 71.0000 47.0000 19.0000      NA      NA      NA 50.0000 24.0000 36.0000
+  [19] 37.0000 47.0000 26.0000 25.0000 25.0000 19.0000 28.0000 45.0000 39.0000
+  [28] 30.0000 58.0000      NA 45.0000 22.0000      NA 41.0000 48.0000      NA
+  [37] 44.0000 59.0000 60.0000 45.0000      NA 53.0000 58.0000 36.0000 33.0000
+  [46]      NA      NA 36.0000 36.0000 14.0000 11.0000 49.0000      NA 36.0000
+  [55]      NA 46.0000 47.0000 27.0000 31.0000      NA      NA      NA      NA
+  [64] 27.0000 26.0000      NA      NA 64.0000 37.0000 39.0000 55.0000      NA
+  [73] 70.0000 69.0000 36.0000 39.0000 38.0000      NA 27.0000 31.0000 27.0000
+  [82]      NA 31.0000 17.0000      NA      NA  4.0000 27.0000 50.0000 48.0000
+  [91] 49.0000 48.0000 39.0000 23.0000 53.0000 36.0000      NA      NA 30.0000
+ [100] 24.0000 19.0000 28.0000 23.0000 64.0000 60.0000      NA 49.0000      NA
+ [109] 44.0000 22.0000 60.0000 48.0000 37.0000 35.0000 47.0000 22.0000 45.0000
+ [118] 49.0000      NA 71.0000 54.0000 38.0000 19.0000 58.0000 45.0000 23.0000
+ [127] 46.0000 25.0000 21.0000 48.0000 49.0000 45.0000 36.0000      NA 55.0000
+ [136] 52.0000 24.0000      NA      NA      NA 16.0000 44.0000 51.0000 42.0000
+ [145] 35.0000 35.0000 38.0000 35.0000      NA 50.0000 49.0000 46.0000      NA
+ [154] 58.0000 41.0000      NA 42.0000 40.0000      NA      NA      NA 42.0000
+ [163] 55.0000 50.0000 16.0000      NA 29.0000 21.0000 30.0000 15.0000 30.0000
+ [172]      NA      NA      NA 46.0000 54.0000 36.0000 28.0000      NA 65.0000
+ [181] 33.0000 44.0000 37.0000      NA 55.0000 47.0000 36.0000 58.0000 31.0000
+ [190] 23.0000 19.0000 64.0000      NA 64.0000 22.0000 28.0000      NA      NA
+ [199] 22.0000      NA      NA 18.0000 17.0000 52.0000 46.0000 56.0000      NA
+ [208]      NA 43.0000 31.0000      NA      NA 33.0000      NA 27.0000 55.0000
+ [217] 54.0000      NA 61.0000 48.0000 18.0000 13.0000 21.0000      NA      NA
+ [226]      NA 34.0000 40.0000 36.0000 50.0000 39.0000 56.0000 28.0000 56.0000
+ [235] 56.0000 24.0000 18.0000      NA 24.0000 23.0000 45.0000 40.0000  6.0000
+ [244] 57.0000      NA 32.0000 62.0000 54.0000 43.0000 52.0000      NA 62.0000
+ [253] 67.0000 63.0000 61.0000 46.0000 52.0000 39.0000 18.0000 48.0000      NA
+ [262] 49.0000 39.0000 17.0000 46.0000      NA 31.0000      NA 61.0000 47.0000
+ [271] 64.0000 60.0000 60.0000 55.0000 54.0000 21.0000 57.0000 45.0000 31.0000
+ [280] 50.0000 50.0000 27.0000 20.0000 51.0000      NA 21.0000      NA      NA
+ [289] 36.0000      NA      NA      NA      NA      NA      NA      NA      NA
+ [298]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [307] 40.0000      NA      NA 32.0000      NA      NA      NA      NA      NA
+ [316]      NA 33.0000      NA      NA      NA      NA      NA 30.0000 28.0000
+ [325] 18.0000      NA 34.0000 32.0000 57.0000 18.0000 23.0000 36.0000 28.0000
+ [334] 51.0000 32.0000 19.0000 28.0000 36.0000  4.0000  1.0000 12.0000 34.0000
+ [343] 19.0000 23.0000 26.0000      NA 27.0000 15.0000 45.0000 40.0000 20.0000
+ [352] 25.0000 36.0000 25.0000      NA 42.0000 26.0000 26.0000  0.8333 31.0000
+ [361]      NA 19.0000 54.0000 44.0000 52.0000 30.0000 30.0000      NA      NA
+ [370] 29.0000      NA 29.0000 27.0000 24.0000 35.0000 31.0000  8.0000 22.0000
+ [379] 30.0000      NA 20.0000      NA 21.0000 49.0000  8.0000 28.0000 18.0000
+ [388]      NA 28.0000 22.0000 25.0000 18.0000 32.0000 18.0000      NA 42.0000
+ [397] 34.0000  8.0000      NA      NA 23.0000 21.0000 19.0000      NA      NA
+ [406]      NA 38.0000      NA 38.0000 35.0000 35.0000 38.0000 24.0000 16.0000
+ [415] 26.0000 45.0000 24.0000 21.0000 22.0000      NA 34.0000 30.0000 50.0000
+ [424] 30.0000 23.0000  1.0000 44.0000 28.0000  6.0000 30.0000      NA 43.0000
+ [433] 45.0000  7.0000 24.0000 24.0000 49.0000 48.0000      NA 34.0000 32.0000
+ [442] 21.0000 18.0000 53.0000 23.0000 21.0000      NA 52.0000 42.0000 36.0000
+ [451] 21.0000 41.0000      NA      NA 33.0000 17.0000      NA      NA      NA
+ [460]      NA      NA      NA 23.0000 34.0000      NA 22.0000      NA      NA
+ [469] 45.0000      NA      NA 31.0000 30.0000 26.0000      NA 34.0000 26.0000
+ [478] 22.0000  1.0000  3.0000      NA      NA      NA 25.0000      NA 48.0000
+ [487]      NA 57.0000      NA      NA      NA  2.0000      NA 27.0000 19.0000
+ [496] 30.0000 20.0000 45.0000      NA 46.0000 41.0000 13.0000 19.0000 30.0000
+ [505] 48.0000 71.0000 54.0000      NA      NA 64.0000 32.0000 18.0000  2.0000
+ [514] 32.0000  3.0000 26.0000 19.0000      NA 20.0000 29.0000 39.0000 22.0000
+ [523]      NA 24.0000      NA 28.0000      NA 50.0000 20.0000 40.0000 42.0000
+ [532] 21.0000 32.0000 34.0000      NA      NA 33.0000  2.0000  8.0000 36.0000
+ [541] 34.0000 30.0000 28.0000 23.0000  0.8333 25.0000  3.0000 50.0000      NA
+ [550] 21.0000      NA      NA 25.0000 18.0000 20.0000 30.0000 59.0000 30.0000
+ [559] 35.0000 22.0000      NA 25.0000 41.0000 25.0000 14.0000 50.0000 22.0000
+ [568]      NA 27.0000 29.0000 27.0000 30.0000 22.0000 35.0000 30.0000 28.0000
+ [577] 23.0000      NA 12.0000 40.0000 36.0000 28.0000 32.0000 29.0000  4.0000
+ [586]  2.0000      NA      NA 36.0000 33.0000      NA      NA      NA 32.0000
+ [595]      NA      NA 26.0000      NA 30.0000 24.0000      NA 18.0000 42.0000
+ [604] 13.0000 16.0000 35.0000 16.0000 25.0000 18.0000 20.0000 30.0000 26.0000
+ [613] 40.0000 24.0000 41.0000 18.0000  0.8333 23.0000 20.0000 25.0000 35.0000
+ [622] 17.0000 32.0000 20.0000 39.0000 39.0000  6.0000  2.0000 17.0000 38.0000
+ [631]  9.0000 26.0000 11.0000  4.0000 20.0000 26.0000 25.0000 18.0000 24.0000
+ [640] 35.0000 40.0000 38.0000  5.0000  9.0000  3.0000 13.0000 23.0000  5.0000
+ [649]      NA 45.0000 23.0000 17.0000 27.0000 23.0000 20.0000 32.0000 33.0000
+ [658]  3.0000      NA      NA      NA 18.0000 40.0000 26.0000 15.0000 45.0000
+ [667] 18.0000 27.0000 22.0000 19.0000 26.0000 22.0000 20.0000 32.0000 21.0000
+ [676] 18.0000 26.0000  6.0000      NA      NA  9.0000 40.0000 32.0000      NA
+ [685] 26.0000 18.0000 20.0000      NA 29.0000 22.0000 22.0000 35.0000 21.0000
+ [694] 20.0000 19.0000 18.0000 18.0000 38.0000      NA 30.0000 17.0000 21.0000
+ [703] 21.0000 21.0000      NA      NA 24.0000 33.0000 33.0000 28.0000 16.0000
+ [712] 37.0000 28.0000      NA 24.0000 21.0000      NA 32.0000 29.0000 26.0000
+ [721] 18.0000 20.0000 19.0000 24.0000 24.0000 36.0000 31.0000 31.0000 30.0000
+ [730] 22.0000      NA 43.0000 35.0000 27.0000 19.0000 30.0000 36.0000  3.0000
+ [739]  9.0000 59.0000 19.0000 44.0000 17.0000      NA 45.0000 22.0000 19.0000
+ [748] 29.0000 30.0000 34.0000 28.0000  0.3333 27.0000 25.0000 24.0000 22.0000
+ [757] 21.0000 17.0000      NA      NA 26.0000 33.0000  1.0000  0.1667 25.0000
+ [766] 36.0000 36.0000 30.0000      NA 23.0000 26.0000 19.0000 65.0000      NA
+ [775] 42.0000 43.0000 32.0000 19.0000 30.0000 24.0000 23.0000      NA 24.0000
+ [784] 24.0000 23.0000 22.0000      NA 18.0000 16.0000 45.0000      NA      NA
+ [793]      NA 47.0000  5.0000      NA      NA      NA      NA      NA      NA
+ [802]      NA      NA      NA      NA      NA 21.0000 18.0000  9.0000 48.0000
+ [811] 16.0000      NA      NA 25.0000      NA      NA 22.0000 16.0000      NA
+ [820] 33.0000      NA  9.0000 41.0000 38.0000 40.0000 43.0000 14.0000 16.0000
+ [829]  9.0000 10.0000  6.0000 11.0000 40.0000 32.0000      NA 20.0000 37.0000
+ [838] 28.0000 19.0000      NA      NA      NA      NA      NA      NA      NA
+ [847]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [856]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [865]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [874]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [883]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [892]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [901]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [910]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [919]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [928]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [937]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [946]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [955]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [964]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [973]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [982]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+ [991]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1000]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1009]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1018]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1027]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1036]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1045]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1054]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1063]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1072]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1081]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1090]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1099]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1108]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1117]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1126]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1135]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1144]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1153]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1162]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1171]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1180]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1189]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1198]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1207]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1216]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1225]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1234]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1243]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1252]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1261]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1270]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1279]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1288]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1297]      NA      NA      NA      NA      NA      NA      NA      NA      NA
+[1306]      NA      NA      NA      NA      NA      NA      NA      NA</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>If you look through the results, you will see that most individuals have numbers in this list, but some have <code>NA</code>. These <code>NA</code> values are the people for which we do not have age information - missing data.</p>
+<p>By the way, the <code>titanic.csv</code> file simply has nothing in the places where there is missing data. When R loaded it, it replaced the empty spots with <code>NA</code> automatically.</p>
+<p><br></p>
+</section>
+<section id="measures-of-location" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-location">4 Measures of location</h2>
+<p>For this lab we will use <code>R</code> to give some basic descriptive statistics for numerical data.</p>
+<section id="mean" class="level3">
+<h3 class="anchored" data-anchor-id="mean">4.1 <code>mean()</code></h3>
+<p>We have already seen in lab 1 how to calculate the mean of a vector of data using <code>mean()</code>. Unfortunately, if there are missing data we need to tell <code>R</code> how to deal with it.</p>
+<p>A (somewhat annoying) quirk of <code>R</code> is that if we try to take the mean of a list of numbers that include missing data, we get an <code>NA</code> for the result!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean with missing data - doh!</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(titanicData<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="na.rm-true" class="level3">
+<h3 class="anchored" data-anchor-id="na.rm-true">4.2 <code>na.rm = TRUE</code></h3>
+<p>To get the mean of all the numbers that we do have, we have to add an argument to the <code>mean()</code> function, <code>na.rm = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tell R to exclude NAs</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31.19418</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>This tells <code>R</code> to remove (“rm”) the NAs (“na”) before calculating the mean. It turns out that the mean age of passengers that we have information for was about 31.2.</p>
+<p><code>na.rm = TRUE</code> can be added to many functions in R, including <code>median()</code>, as we shall see next.</p>
+<p><br></p>
+</section>
+<section id="median" class="level3">
+<h3 class="anchored" data-anchor-id="median">4.3 <code>median()</code></h3>
+<p>The median of a series of numbers is the “middle” number – half of the numbers in the list are greater the median and half are below it. It can be calculated in <code>R</code> by using <code>median()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate median</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">4.4 <code>summary()</code></h3>
+<p>A handy function that will return both the mean and median at the same time, along with other information such as the first and third quartiles, is <code>summary()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># automatic summary information</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(titanicData<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.1667 21.0000 30.0000 31.1942 41.0000 71.0000     680 </code></pre>
+</div>
+</div>
+<p><br></p>
+<p>From left to right, this output gives us</p>
+<ul>
+<li><p>the smallest (minimum) value in the list (“Min.”)</p></li>
+<li><p>the first quartile (“1st Qu.” - the value where 25% of the values are smaller)</p></li>
+<li><p>the median</p></li>
+<li><p>the mean</p></li>
+<li><p>the third quartile (“3rd Qu.” - 75% of values are smaller)</p></li>
+<li><p>the largest (maximum) value (“Max.”)</p></li>
+<li><p>the number of individuals with missing values (”NA’s”)</p></li>
+</ul>
+<p><br></p>
+<p>The first quartile is the value in the data that is larger than a quarter of the data points. The third quartile is larger than 3/4 of the data. These are also called the 25th percentile and the 75th percentile, respectively. (You may remember these from boxplots, where the top and bottom of the box mark the 75th and 25th percentiles, respectively.)</p>
+<p><br></p>
+</section>
+</section>
+<section id="measures-of-variability" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-variability">5 Measures of variability</h2>
+<p>R can also calculate measures of the variability of a sample. In this section we’ll learn how to calculate the variance, standard deviation, coefficient of variation and interquartile range of a set of data.</p>
+<p><br></p>
+<section id="var" class="level3">
+<h3 class="anchored" data-anchor-id="var">5.1 <code>var()</code></h3>
+<p>To calculate the variance of a list of numbers, use <code>var()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variance is big here!</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 217.4895</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Note that <code>var()</code>, as well as <code>sd()</code> below, have the same need for <code>na.rm = TRUE</code> when analyzing data that include missing values.</p>
+<p><br></p>
+</section>
+<section id="sd" class="level3">
+<h3 class="anchored" data-anchor-id="sd">5.2 <code>sd()</code></h3>
+<p>The standard deviation can be calculated by <code>sd()</code>.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standard deviation</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.74753</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Of course, the standard deviation is the same as the square root of the variance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.74753</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="coefficient-of-variation" class="level3">
+<h3 class="anchored" data-anchor-id="coefficient-of-variation">5.3 Coefficient of variation</h3>
+<p>The variance of a measure is positively correlated with it’s mean. We can standardize the measure of variation according to the mean (so that variation can be compared between variables with different means) using the coefficient of variation, the `c.v.’.</p>
+<p><span class="math inline">\(c.v. = (standard\ deviation) / mean * 100\)</span></p>
+<p>There is no standard function in <code>R</code> to calculate the coefficient of variation. You can do this yourself, though, directly from the definition:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the cv</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">mean</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47.27653</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="iqr" class="level3">
+<h3 class="anchored" data-anchor-id="iqr">5.4 <code>IQR()</code></h3>
+<p>The interquartile range (or <code>IQR</code>) is the difference between the third quartile and the first quartile; in other words the range covered by the middle half of the data. It can be calculated easily with <code>IQR()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interquartile range</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(titanicData<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Note that this is the same as we could calculate by the results from <code>summary()</code> above. The third quartile is 41 and the first quartile is 21, so the difference is 41 – 21 = 20.</p>
+<p><br></p>
+</section>
+<section id="confidence-intervals-ci-of-the-mean" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals-ci-of-the-mean">5.5 Confidence intervals (CI) of the mean</h3>
+<p>The confidence interval for an estimate tells us a range of values that is likely to contain the true value of the parameter. For example, in 95% of random samples from a population, the 95% confidence interval of the mean will contain the true value of the population mean.</p>
+<p><code>R</code> does not have a built-in function to calculate only the confidence interval of the mean, but the function that calculates t-tests will give us this information. The function <code>t.test()</code> has many results in its output. By adding <code>$conf.int</code> to this function we can slice out only the confidence interval for the mean. By default it gives us the low and high values for the 95% confidence interval of a variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 CI</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(titanicData<span class="sc">$</span>age)<span class="sc">$</span>conf.int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30.04312 32.34524
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>As the result above shows, the 95% confidence interval of the mean of age in the titanicData data set is from about 30.0 to 32.3. <code>R</code> also tells us that it used a 95% confidence level for its calculation. (The confidence interval is not so useful in this case, because we actually have information for nearly all the individuals on the Titanic.)</p>
+<p>To calculate confidence intervals with a different level of confidence, we can add the option <code>conf.level</code> to the <code>t.test</code> function. For example, for a 99% confidence interval we can use the following.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify confidence interval with conf.level argument</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(titanicData<span class="sc">$</span>age, <span class="at">conf.level =</span> <span class="fl">0.99</span>)<span class="sc">$</span>conf.int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 29.67976 32.70861
+attr(,"conf.level")
+[1] 0.99</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="sampling-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-exercise">6 Sampling exercise</h2>
+<section id="distribution-of-sample-means" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-sample-means">6.1 Distribution of sample means</h3>
+<p>Go to the web and open the page at <a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Gaussian sampling exercise</a>. This page contains some interactive visualizations that let you play around with sampling to see the distribution of sampling means. Click the button that says “Tutorial” near the bottom of the page and follow along with the instructions.</p>
+<p><br></p>
+</section>
+<section id="confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals">6.2 Confidence intervals</h3>
+<p>Go back to the web, and open the page at <a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Confidence interval exercise</a>. This page draws confidence intervals for the mean of a known population. Click “Tutorial” again, and follow along.</p>
+<p><br></p>
+</section>
+</section>
+<section id="challenge-questions" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-questions">7 Challenge questions</h2>
+<blockquote class="blockquote">
+<p>Make a script in <code>RStudio</code> that collects all your <code>R</code> code required to answer the following questions. Include answers to the qualitative questions using comments.</p>
+</blockquote>
+<p><br></p>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">7.1</h3>
+<p>Use the data file <code>MancHeight.csv</code> for this question - it contains <code>height</code>, <code>gender</code> and the number of <code>siblings</code> for university statistics students from Manchester. These data were collected using measuring tapes in units of cm. Open that file in <code>R</code>.</p>
+<p>Plot the distribution of heights in the class. Describe the shape of the distribution. Is it symmetric or skewed? Is it unimodal (one distinct peak), bimodal (two discernible peaks) or something else? ? Key point: A distribution is skewed if it is asymmetric. A distribution is skewed right if there is a long tail to the right, and skewed left if there is a long tail to the left.</p>
+<p>Are there any large or small outliers that look as though a student used the wrong units for their height measurement. (e.g., are there any that are more plausibly a height given in inches rather than the requested centimeters?) If so, and if this is not likely to be an accurate description of an individual in your class, use <code>filter()</code> from the package <code>dplyr</code> to create a new data set without those rows.</p>
+<p>Use <code>R</code> to calculate the mean height of all students in the class.</p>
+<p>Use <code>sd()</code> to calculate the standard deviation of height.</p>
+<p><br></p>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">7.2</h3>
+<p>The file <code>caffeine.csv</code> contains data on the amount of caffeine in a 16 oz. cup of coffee obtained from various vendors. For context, doses of caffeine over 25 mg are enough to increase anxiety in some people, and doses over 300 to 360 mg are enough to significantly increase heart rate in most people. A can of Red Bull contains 80mg of caffeine.</p>
+<p>What is the mean amount of caffeine in 16 oz. coffees?</p>
+<p>What is the 95% confidence interval for the mean?</p>
+<p>Plot the frequency distribution of caffeine levels for these data in a histogram. Comment on whether you think the amount of caffeine in a cup of coffee is relatively consistent from one vendor to another? What is the standard deviation of caffeine level? What is the coefficient of variation?</p>
+<p>The file <code>caffeineCosta.csv</code> has data on six 16 oz. cups of Breakfast Blend coffee sampled on six different days from a Costa location. Calculate the mean (and the 95% confidence interval for the mean) for these data. Compare these results to the data taken on the broader sample of vendors in the first file. Describe the difference.</p>
+<p><br></p>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">7.3</h3>
+<p>A confidence interval is a range of values that are likely to contain the true value of a parameter. Consider the <code>caffeine.csv</code> data again.</p>
+<p>Calculate the 99% confidence interval for the mean caffeine level.</p>
+<p>Compare this 99% confidence interval to the 95% confidence interval you calculate in question 2 above. Which confidence interval is wider (i.e., spans a broader range)? Why should this one be wider?</p>
+<p>Let’s compare the quantiles of the distribution of caffeine to this confidence interval. Approximately 95% of the data values should fall between the 2.5% and 97.5% quantiles of the distribution of caffeine. (Explain why this is true.) We can use R to calculate the 2.5% and 97.5% quantiles with a command like the following. (Replace “datavector” with the name of the vector of your caffeine data.)</p>
+<p><code>quantile(datavector, c(0.025, 0.975), na.rm =TRUE)</code></p>
+<p>Are these the same as the boundaries of the 95% confidence interval? If not, why not? Which should bound a smaller region, the quantile or the confidence interval of the mean?</p>
+<p><br></p>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">7.4</h3>
+<p>Return to the class data set <code>Mancheight.csv</code>. Find the mean value of <code>sibs</code>. Add one to this to find the mean number of children per family in the class.</p>
+<p>The mean number of offspring per family twenty years ago was about 2. Is the value for this class similar, greater, or smaller? If different, think of reasons for the difference.</p>
+<p>Are the families represented in this class systematically different from the population at large? Is there a potential sampling bias?</p>
+<p>Consider the way in which the data were collected. How many families with zero children are represented? Why? What effect does this have on the estimated mean family size of all couples?</p>
+<p><br></p>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">7.5</h3>
+<p>Return to the data on <code>countries</code> of the world, in <code>countries.csv</code>. Plot the distributions for <code>ecological_footprint_2000</code>, <code>cell_phone_subscriptions_per_100_people_2012</code>, and <code>life_expectancy_at_birth_female.</code></p>
+<p>For each variable, plot a histogram of the distribution using <code>hist()</code>. Is the variable skewed? If so, in which direction?</p>
+<p>For each variable, calculate the mean and median and add them to their respective plots using the function <code>abline()</code> using the <code>v</code> argument. Are the mean and median similar for each? Match the difference in mean and median to the direction of skew on the histogram. Do you see a pattern?</p>
 <p><br><br></p>
+</section>
 </section>
 <section id="harper-adams-data-science" class="level2">
 <h2 class="anchored" data-anchor-id="harper-adams-data-science">Harper Adams Data Science</h2>

@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -61,6 +124,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -221,7 +285,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">1 Objectives</a></li>
+  <li><a href="#start-a-script" id="toc-start-a-script" class="nav-link" data-scroll-target="#start-a-script">2 Start a script!</a></li>
+  <li><a href="#confidence-interval-for-a-proportion" id="toc-confidence-interval-for-a-proportion" class="nav-link" data-scroll-target="#confidence-interval-for-a-proportion">3 Confidence interval for a proportion</a></li>
+  <li><a href="#the-binomial-tests" id="toc-the-binomial-tests" class="nav-link" data-scroll-target="#the-binomial-tests">4 The Binomial tests</a>
+  <ul class="collapse">
+  <li><a href="#binom.test" id="toc-binom.test" class="nav-link" data-scroll-target="#binom.test">4.1 <code>binom.test()</code></a></li>
+  </ul></li>
+  <li><a href="#goodness-of-fit-test" id="toc-goodness-of-fit-test" class="nav-link" data-scroll-target="#goodness-of-fit-test">5 Goodness of fit test</a>
+  <ul class="collapse">
+  <li><a href="#table" id="toc-table" class="nav-link" data-scroll-target="#table">5.1 <code>table()</code></a></li>
+  <li><a href="#chisq.test" id="toc-chisq.test" class="nav-link" data-scroll-target="#chisq.test">5.2 <code>chisq.test()</code></a></li>
+  </ul></li>
+  <li><a href="#fit-to-a-poisson-distribution" id="toc-fit-to-a-poisson-distribution" class="nav-link" data-scroll-target="#fit-to-a-poisson-distribution">6 Fit to a Poisson distribution</a>
+  <ul class="collapse">
+  <li><a href="#dpois" id="toc-dpois" class="nav-link" data-scroll-target="#dpois">6.1 <code>dpois()</code></a></li>
+  <li><a href="#example-chi-squared-test" id="toc-example-chi-squared-test" class="nav-link" data-scroll-target="#example-chi-squared-test">6.2 Example chi squared test</a></li>
+  <li><a href="#do-the-test" id="toc-do-the-test" class="nav-link" data-scroll-target="#do-the-test">6.3 Do the test</a></li>
+  <li><a href="#pchisq" id="toc-pchisq" class="nav-link" data-scroll-target="#pchisq">6.4 <code>pchisq()</code></a></li>
+  </ul></li>
+  <li><a href="#r-commands-summary" id="toc-r-commands-summary" class="nav-link" data-scroll-target="#r-commands-summary">7 R commands summary</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">8 Exercises</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">8.1</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">8.2</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">8.3</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">8.4</a></li>
+  </ul></li>
   <li><a href="#harper-adams-data-science" id="toc-harper-adams-data-science" class="nav-link" data-scroll-target="#harper-adams-data-science">Harper Adams Data Science</a></li>
   </ul>
 </nav>
@@ -245,9 +335,448 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab03-bell.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">Of bell-shaped curves</figcaption><p></p>
+</figure>
+</div>
+</center>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">1 Objectives</h2>
+<ul>
+<li><p>Calculate a confidence interval for a proportion</p></li>
+<li><p>Make a hypothesis test about proportions</p></li>
+<li><p>Fit frequency data to a model</p></li>
+<li><p>Test for a fit to a Poisson distribution</p></li>
+</ul>
+<p><br></p>
+<p><a href="data/c7041-lab-data.zip">Data for all labs (unzip to your working directory)</a></p>
+<p><a href="scripts/template_script.R">Template script</a></p>
+<p><br></p>
+</section>
+<section id="start-a-script" class="level2">
+<h2 class="anchored" data-anchor-id="start-a-script">2 Start a script!</h2>
+<p>For this and every lab or project, begin by:</p>
+<ul>
+<li><p><strong>starting a new script</strong></p></li>
+<li><p><strong>create a good header section and table of contents</strong></p></li>
+<li><p><strong>save the script file with an informative name</strong></p></li>
+<li><p><strong>set your working directory</strong></p></li>
+</ul>
+<p>Aim to make the script useful as a future reference for doing things in <code>R</code> - this will come in handy for projects and assessments!</p>
+<p><br></p>
+</section>
+<section id="confidence-interval-for-a-proportion" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-for-a-proportion">3 Confidence interval for a proportion</h2>
+<p>To calculate a confidence interval for an estimate of a proportion, we suggest using the Agresti-Coull method. This method is available in the R package “binom”, which you can install and load with the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If needed, install {binom}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("binom", dependencies = TRUE)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'binom' was built under R version 4.1.1</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Like any package, you only need to install it once, but you need to run the <code>library()</code> command in each session before you can use it. Once the package is installed, calculating a confidence interval for a proportion is fairly straightforward. The function you need is called <code>binom.confint()</code>. You need to specify:</p>
+<ul>
+<li><p><strong>x</strong>: the number of successes</p></li>
+<li><p><strong>n</strong>: the total sample size</p></li>
+<li><p><strong>method</strong>: “ac” for “Agresti-Coull”</p></li>
+</ul>
+<p><br></p>
+<p>For example, if we have 87 data points and 30 of them are “successes”, we can find the 95% confidence interval for the proportion of successes with the following command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.confint</span>(<span class="at">x =</span> <span class="dv">30</span>, <span class="at">n =</span> <span class="dv">87</span>, <span class="at">method =</span> <span class="st">"ac"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         method  x  n      mean     lower     upper
+1 agresti-coull 30 87 0.3448276 0.2532164 0.4495625</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>This tells us that the observed proportion (called “mean” here) is 0.3448, and the lower and upper bounds of the 95% confidence interval are 0.2532 and 0.4496.</p>
+<p><br></p>
+</section>
+<section id="the-binomial-tests" class="level2">
+<h2 class="anchored" data-anchor-id="the-binomial-tests">4 The Binomial tests</h2>
+<p>Doing a binomial test in <code>R</code> is much easie<strong>R</strong> (see what I did the<strong>R</strong>e!?) than doing one by hand. You use the binomial test to decide whther some observed count of data with 2 possible outcomes is different than expected (e.g.&nbsp;if you count 100 coin flips you might expect 50:50)</p>
+<p><br></p>
+<section id="binom.test" class="level3">
+<h3 class="anchored" data-anchor-id="binom.test">4.1 <code>binom.test()</code></h3>
+<p>The function <code>binom.test()</code> will do an exact binomial test. It requires three pieces of information in the input:</p>
+<p><strong>x</strong> for the number of “successes” observed in the data,</p>
+<p><strong>n</strong> for the total number of data points, and</p>
+<p><strong>p</strong> for the proportion given by the null hypothesis.</p>
+<p><br></p>
+<p>For example, if we have 18 toads that have been measured for a left-right preference and 14 are right-handed, we can test the null hypothesis of equal probabilities of left- and right-handedness with a binomial test. In this case, n = 18, x = 14, and p = 0.5.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">14</span>, <span class="at">n =</span> <span class="dv">18</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Exact binomial test
+
+data:  14 and 18
+number of successes = 14, number of trials = 18, p-value = 0.03088
+alternative hypothesis: true probability of success is not equal to 0.5
+95 percent confidence interval:
+ 0.5236272 0.9359080
+sample estimates:
+probability of success 
+             0.7777778 </code></pre>
+</div>
+</div>
+<p><br></p>
+<p>In this case, the output of the function gives quite a bit of information. One key element that we will be looking for is the P-value; in this case R tells us that the P-value is 0.03088. This is the P-value that corresponds to a two-tailed test.</p>
+<p>The <code>binom.test()</code> function also gives an estimate of the proportion of successes (in this case 0.7777778). (It also gives an approximate 95% confidence interval for the proportion using a different method than the Agresti-Coull method that we recommend.)</p>
+<p><br></p>
+</section>
+</section>
+<section id="goodness-of-fit-test" class="level2">
+<h2 class="anchored" data-anchor-id="goodness-of-fit-test">5 Goodness of fit test</h2>
+<p>A chi-squared (<span class="math inline">\(\chi^2\)</span>) goodness-of-fit test compares the frequencies of values of a categorical variable to the frequencies predicted by a null hypothesis. For example, the file MandMlist.csv contains a list of all the colors of M&amp;M candies from one package, under the variable “color”. Let’s ask whether this fits the proportions of colors advertised by the candy company.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data, NB your file path may be different</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>MMlist <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/MandMlist.csv"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># MMlist$color contains the color of each of 55 M&amp;Ms.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>MMlist<span class="sc">$</span>color</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "brown"  "blue"   "blue"   "green"  "yellow" "yellow" "orange" "yellow"
+ [9] "orange" "yellow" "red"    "green"  "green"  "orange" "orange" "yellow"
+[17] "green"  "blue"   "red"    "brown"  "green"  "orange" "blue"   "yellow"
+[25] "green"  "yellow" "orange" "brown"  "green"  "blue"   "brown"  "red"   
+[33] "green"  "orange" "blue"   "blue"   "green"  "orange" "red"    "yellow"
+[41] "red"    "blue"   "brown"  "yellow" "blue"   "orange" "green"  "green" 
+[49] "green"  "blue"   "orange" "yellow" "yellow" "orange" "red"   </code></pre>
+</div>
+</div>
+<p><br></p>
+<section id="table" class="level3">
+<h3 class="anchored" data-anchor-id="table">5.1 <code>table()</code></h3>
+<p>Summarizing frequency data in a table is useful to see the data more concisely, and such a table is also necessary as input to the <code>χ2</code> test function. We can summarize the counts (frequencies) of a categorical variable with <code>table()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create table</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>MMtable <span class="ot">&lt;-</span> <span class="fu">table</span>(MMlist<span class="sc">$</span>color)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print table</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>MMtable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  blue  brown  green orange    red yellow 
+    10      5     12     11      6     11 </code></pre>
+</div>
+</div>
+<p>This shows that in this list of M&amp;M colors, 10 were blue, 5 were brown, etc.</p>
+<p><br></p>
+</section>
+<section id="chisq.test" class="level3">
+<h3 class="anchored" data-anchor-id="chisq.test">5.2 <code>chisq.test()</code></h3>
+<p>We can use a <code>χ2</code> goodness-of-fit test to compare the frequencies in a set of data to a null hypothesis that specifies the probabilities of each category. In <code>R</code>, this can be calculated using the function <code>chisq.test()</code>.</p>
+<p>The company says that the percentages are 24% blue, 14% brown, 16% green, 20% orange, 13% red and 13% yellow. This is our null hypothesis. Let’s test whether these proportions are consistent with the frequencies of the colors in this bag. <code>R</code> requires you to proivide the proportions expected by the null hypothesis in a vector, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>expected_proportions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.24</span>, <span class="fl">0.14</span>, <span class="fl">0.16</span>, <span class="fl">0.20</span>, <span class="fl">0.13</span>, <span class="fl">0.13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These expected proportions will use to calculate the expected frequencies.</p>
+<p><br></p>
+<p>The first thing we need to do is check whether the expected frequencies (expected by the null hypothesis) are large enough to justify using a χ2 goodness of fit test. (In other words, that no more than 25% of the expected frequencies are less than 5 and none is less than 1.)</p>
+<p>To obtain these expected counts, multiply the vector of the expected proportions by the total sample size. We can find the total sample size by taking the <code>sum()</code> of the frequency table:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(MMtable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>So for this example, the expected frequencies from our null hypothesis are 55 multiplied by the list of expected proportions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">55</span> <span class="sc">*</span> expected_proportions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.20  7.70  8.80 11.00  7.15  7.15</code></pre>
+</div>
+</div>
+<p>All of these expected values are greater than 5, so we have no problem with the assumptions of the <code>χ2</code> goodness of fit test. (If there were a problem here, we’d have to combine categories. We’ll see an example of that in the next section.)</p>
+<p><br></p>
+<p>The function <code>chisq.test()</code> requires two arguments in its input: a frequency table from the data and a vector with the expected proportions from the null hypothesis. The name of the vector of expected proportions in this function is p.&nbsp;So here is the format of the <code>R</code> command to do a <code>χ2</code> test:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(MMtable, <span class="at">p =</span> expected_proportions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  MMtable
+X-squared = 5.1442, df = 5, p-value = 0.3985</code></pre>
+</div>
+</div>
+<p>“X–squared” here in the output means <code>χ2</code>. The <code>χ2</code> value for this test is 5.1442. There are 5 degrees of freedom (df) for this test, and the P-value turned out to be 0.3985. We wouldn’t reject the null hypothesis with these data.</p>
+<p><br></p>
+</section>
+</section>
+<section id="fit-to-a-poisson-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="fit-to-a-poisson-distribution">6 Fit to a Poisson distribution</h2>
+<p>A <code>χ2</code> goodness of fit test can be used to ask whether a frequency distribution of a variable is consistent with a specific distribution, like the Poisson distribution. This is a useful way to determine if the count of events in space or time are not “random” but instead are clumped or dispersed.</p>
+<p>It turns out that this is not a straightforward process in <code>R</code>. In this section, we’ll highlight a couple of functions in <code>R</code> that will streamline doing the calculations by hand. We’ll use the data on the numbers of historical extinctions in the data file <code>MassExtinctions.csv</code>.</p>
+<blockquote class="blockquote">
+<p>Mass extinctions Do extinctions occur randomly in Earth’s history, or are there some periods when extinctions occur at a rate higher than we would expect at random, i.e., is there evidence of “mass extinctions”? Fossil marine invertebrates constitute what is considered the best fossil record of extinctions, because they have structures that tend to preserve well. The data we examine here is a survey of the recorded number of extinctions of marine invertebrate families in 76 time blocks of similar duration through the fossil record (Raup &amp; Seposki 1982).</p>
+</blockquote>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data, you will probably need to supply your own file path</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>extinctData <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/MassExtinctions.csv"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>number_of_extinctions <span class="ot">&lt;-</span> extinctData<span class="sc">$</span>numberOfExtinctions</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(number_of_extinctions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>number_of_extinctions
+ 1  2  3  4  5  6  7  8  9 10 11 14 16 20 
+13 15 16  7 10  4  2  1  2  1  1  1  2  1 </code></pre>
+</div>
+</div>
+<p><br></p>
+<p>The first row lists each possible number of extinctions in a time period, ranging from 1 to 20. The second row shows the number of time periods that had each number of extinctions. (so there were 13 time periods with one extinction, 15 time periods with 2 extinctions, etc.)</p>
+<p>The mean number of extinctions per unit of time is not specified by the null hypothesis, so we need to estimate it from the data. This mean turns out to be 4.21 extinctions per time period.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(number_of_extinctions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.210526</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>We can use this mean to calculate the probability according to a Poisson distribution of getting each specific number of extinctions.</p>
+<p><br></p>
+<section id="dpois" class="level3">
+<h3 class="anchored" data-anchor-id="dpois">6.1 <code>dpois()</code></h3>
+<p>Fortunately, R has a function to calculate the probability of a given value under the Poisson distribution. This function is <code>dpois()</code>, which stands for “density of the Poisson”. <code>dpois()</code> requires two values for input, the mean (which is called lambda in this function) and x, the value of the outcome we are interested in (here, the number of extinctions). For example, the probability of getting x = 3 from a Poisson distribution with mean 4.21 can be found from the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">lambda =</span> <span class="fl">4.21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1846355</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>We see that the probability of getting exactly 3 successes from a Poisson distribution with mean 4.21 is about 18.5%.</p>
+<p><code>dpois()</code> will accept a vector of <code>x</code>s as input, and return a vector of the probabilities of those <code>x</code>s. A convenient short hand to know here is that <code>R</code> will create a vector with a range of values with a colon. For example, 0:20 is a vector with the integers from 0 to 20.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">:</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>We’ll need the probabilities for all possible values of x from 0 to 20 (because this was the largest value observed in the data). We can create a vector with the Poisson probabilities of each possibility from 0 to 20 like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>expected_probability <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">lambda =</span> <span class="fl">4.21</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>expected_probability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1.484637e-02 6.250321e-02 1.315693e-01 1.846355e-01 1.943289e-01
+ [6] 1.636249e-01 1.148102e-01 6.905011e-02 3.633762e-02 1.699793e-02
+[11] 7.156129e-03 2.738846e-03 9.608784e-04 3.111768e-04 9.357530e-05
+[16] 2.626347e-05 6.910575e-06 1.711384e-06 4.002736e-07 8.869220e-08
+[21] 1.866971e-08</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(expected_probability, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.01484637 0.06250321 0.13156926 0.18463553 0.19432889 0.16362493
+ [7] 0.11481016 0.06905011 0.03633762 0.01699793 0.00715613 0.00273885
+[13] 0.00096088 0.00031118 0.00009358 0.00002626 0.00000691 0.00000171
+[19] 0.00000040 0.00000009 0.00000002</code></pre>
+</div>
+</div>
+<p><br></p>
+<blockquote class="blockquote">
+<p>NB! The odd numerical notation here is a shorthand for scientific notation. 1.48e-02 means 1.48 x 10-2, which is equal to 0.0148. The e stands for exponent.</p>
+</blockquote>
+<p><br></p>
+<p>Remember that we asked <code>R</code> to output the probability of values from 0 to 20. So the first value in this output corresponds to the probability of getting a zero, the second to the probability of getting a 1, etc.</p>
+</section>
+<section id="example-chi-squared-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-chi-squared-test">6.2 Example chi squared test</h3>
+<p>In order to convert these probabilities into expected values for a <code>χ2</code> test, we need to multiply them by the total sample size.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the expected number of extinctions</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">length</span>(number_of_extinctions) <span class="sc">*</span> expected_probability, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1.12832399  4.75024401  9.99926365 14.03229999 14.76899574 12.43549441
+ [7]  8.72557191  5.24780825  2.76165909  1.29184275  0.54386580  0.20815227
+[13]  0.07302676  0.02364943  0.00711172  0.00199602  0.00052520  0.00013007
+[19]  0.00003042  0.00000674  0.00000142</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Most of these values would cause problems for the <code>χ2</code> test because they are too small (less than 1). We need to combine categories in some reasonable way so that the expected frequencies match the assumptions of the <code>χ2</code> test. Let’s combine the categories for 0 and 1 successes, and combine everything greater than or equal to 8 into one category. It is possible to do this all in <code>R</code>, but you can also do it by hand, using the expected frequencies we just calculated. Here is a table of the expected frequencies for these new combined categories, for both the observed and expected, summing over all the possibilities within each of these groupings. (E.g., the expected frequency for the category “0 or 1” is the sum of 1.128324 and 4.750244.)</p>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab03-table.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">Expected frequencies</figcaption><p></p>
+</figure>
+</div>
+</center>
+<p><br></p>
+<p>Note that these expected values are large enough to match the conditions of the <code>χ2</code> test.</p>
+<p><br></p>
+</section>
+<section id="do-the-test" class="level3">
+<h3 class="anchored" data-anchor-id="do-the-test">6.3 Do the test</h3>
+<p>Make vectors (using <code>c()</code>) for the observed and expected values for these new groups:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>expected_combined <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.878568</span>, <span class="fl">9.999264</span>, <span class="fl">14.032300</span>, <span class="fl">14.768996</span>, <span class="fl">12.435494</span>,  <span class="fl">8.725572</span>, <span class="fl">5.247808</span>, <span class="fl">4.911998</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>observed_combined <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>From these we can calculate the <code>χ2</code> test statistic using <code>chisq.test()$statistic</code>.</p>
+<p><br></p>
+<p>First we give it the list of observed values, then the expected values as <span class="math inline">\(p\)</span>. Because we are giving the list of expected frequencies rather the expected probabilities, we need to give it the option <code>rescale.p = TRUE</code>. Finally, by adding $statistic at the end, <code>R</code> will only give us the <code>χ2</code> value as output. (We don’t yet want the full results of the test because R does not know to correct for the reduction in degrees of freedom caused by estimating the mean.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(observed_combined, <span class="at">p =</span> expected_combined, <span class="at">rescale.p =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>statistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in chisq.test(observed_combined, p = expected_combined, rescale.p =
+TRUE): Chi-squared approximation may be incorrect</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>X-squared 
+ 23.93919 </code></pre>
+</div>
+</div>
+<p><br></p>
+<p>This correctly calculates our <code>χ2</code> value as 23.939. The warning message is because one of the expected values is under 5, but because this occurred in less than 20% of the categories, it is fine to proceed.</p>
+<p>The degrees of freedom for this test are the number of categories minus the number of parameters estimated from the data minus one. We ended up using 8 categories and estimated one parameter from the data, so we have <code>df = 8 – 1 – 1 = 6</code>.</p>
+<p><br></p>
+</section>
+<section id="pchisq" class="level3">
+<h3 class="anchored" data-anchor-id="pchisq">6.4 <code>pchisq()</code></h3>
+<p>To calculate the correct P-value, we need to know probability of getting a <code>χ2</code> value greater than 23.939 from a distribution that has 6 degrees of freedom. <code>R</code> has a function we can use for this, called <code>pchisq()</code>. We are interested here in the probability above the observed <code>χ2</code> value, so we want the probability in the right (or upper) tail. To use this function, we need to specify three values: our observed <code>χ2</code> (confusingly called <span class="math inline">\(q\)</span> in this function), the degrees of freedom (called df, thank goodness), and an option that tells us to use the upper tail (<code>lower.tail = FALSE</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(<span class="at">q =</span> <span class="fl">23.939</span>, <span class="at">df =</span> <span class="dv">6</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0005359236</code></pre>
+</div>
+</div>
+<p>Thus, our P-value for this test of the fit of these data to a Poisson distribution is approximately 0.0005. We reject the null hypothesis that these extinction data follow a Poisson distribution.</p>
+<p><br></p>
+</section>
+</section>
+<section id="r-commands-summary" class="level2">
+<h2 class="anchored" data-anchor-id="r-commands-summary">7 R commands summary</h2>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab03.2-Frequency-data-summary.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">commands summary</figcaption><p></p>
+</figure>
+</div>
+</center>
+<p><br></p>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">8 Exercises</h2>
+<blockquote class="blockquote">
+<p>Make a script in RStudio that collects all your R code required to answer the following questions. Include answers to the qualitative questions using comments.</p>
+</blockquote>
+<p><br></p>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">8.1</h3>
+<p>Many hospitals (and airplanes) have signs posted banning mobile phone use. These bans originated from studies on early versions of mobile phones. In one such experiment, out of 510 tests with cell phones operating at near-maximum power, six disrupted a piece of medical equipment enough to hinder interpretation of data or cause equipment to malfunction. A more recent study found zero instances of disruption of medical equipment out of 300 tests.</p>
+<p>For the older data, use <code>binom.confint()</code> with the Agresti-Coull method to calculate the estimated proportion of equipment disruption. What is the 95% confidence interval for this proportion?</p>
+<p>For the data on the newer cell phones, use <code>R</code> to calculate the estimate of the proportion and its 95% confidence interval.</p>
+<p><br></p>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">8.2</h3>
+<p>It is difficult to tell what other people are thinking, and it may even be impossible to find out what they are thinking by asking them. A series of studies shows that we do not always know how our own thought processes are carried out.</p>
+<p>A classic experiment by Wilson and Nisbett (1978) addressed this issue in a clever way. Participants were asked to decide which of four pairs of silk stockings were better, but the four stockings that they were shown side-by-side were in fact identical. Nearly all participants were able, however, to offer reasons that they had chosen one pair over the other.</p>
+<p>The four pairs of stockings were presented to the participants randomly with respect to which pair was in which position. However, of the 52 subjects who selected a pair of stockings, 6 chose the pair on the far left, 9 chose the pair in the left-middle, 16 chose the pair in the right-middle, and 21 chose the pair on the far right. None admitted later that the position had any role in their selection. These data are in a file called <code>stockings.csv</code>.</p>
+<p><br></p>
+<blockquote class="blockquote">
+<p>What are the expected frequencies for this scenario, under the null hypothesis that all four pairs of stockings are equally likely to be chosen?</p>
+</blockquote>
+<p><br></p>
+<p>Use <code>chisq.test()</code> to test the null hypothesis that the selection of the stockings was independent of position.</p>
+<p><br></p>
+<p>The function <code>chisq.test()</code> can take the data either as a data frame, as above, or as a vector of the observed counts, as a parameter called <code>x</code> as input:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">21</span>), <span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  c(6, 9, 16, 21)
+X-squared = 10.615, df = 3, p-value = 0.014</code></pre>
+</div>
+</div>
+<p>Try it using the specification of the counts, to see that you get the same answer as above.</p>
+<p><br></p>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">8.3</h3>
+<p>Many people believe that the month in which a person is born predicts significant attributes of that person in later life. Such astrological beliefs have no scientific support, but are there circumstances in which birth month could have a strong effect on later life? One prediction is that elite athletes will disproportionately have been born in the months just after the age cutoff used to separate levels for young players of the sport. The prediction is that those athletes that are oldest within an age group will do better by being relatively older, and therefore will gain more confidence and attract more coaching attention than the relatively younger players in their same groups. As a result, they may be more likely to dedicate themselves to the sport and do well later. In the case of football, the cutoff for different age groups is generally August.</p>
+<p>The birth months (by three month interval) of football players competing in the Under-20’s World Tournament are recorded in the data file <code>football_birth_quarter.csv</code> (from Barnsley et al.&nbsp;1992). Plot these data. Do you see a pattern?</p>
+<p>The numbers of people born calculated from a large sample is recorded in the file <code>births.csv</code>. Compare the distribution of birth months of the football players to what would be expected by chance, assuming that the birth data for the same in “births.csv” is a good approximation for the population from which recorded players are drawn. Use the appropriate statistical test. Describe the pattern.</p>
+<p><br></p>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">8.4</h3>
+<p>Is cardiac arrest equally likely to occur throughout the year? Or are some weeks more likely than others to produce cardiac arrests? One way to look at this issue is to ask whether cardiac arrests occur according to a probability model in which such events are independent of each other and equally likely at all times. If so, then the number of cardiac arrests per week will follow a Poisson distribution.</p>
+<p>The data file “cardiacArrest.csv” contains data on the number of cardiac arrests per week from one hospital over five years. It records the number of cardiac arrests that occurred to individuals outside of the hospital who were then brought in for treatment (from Skogvoll and Lindqvist 1999).</p>
+<ol type="a">
+<li><p>Calculate a table of the observed frequencies of cardiac arrests per week.</p></li>
+<li><p>What is the mean number of cardiac arrests per week?</p></li>
+<li><p>For the mean you just calculated, use dpois() to calculate the probability of 0 cardiac arrests in a week assuming a Poisson distribution. Multiply that probability by the number of data points to calculate the expected frequency of 0 in these data under the null hypothesis of a Poisson distribution.</p></li>
+<li><p>Here is a table of the expected frequencies under the null hypothesis. (The expected frequency for zero cardiac arrests should match your calculation above.) Are these frequencies acceptable for use in a χ2 goodness of fit test?</p></li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Number of cardiac arrests</th>
+<th>Expected</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>34.785295</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>70.103698</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>70.640891</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>47.454800</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>23.909219</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>9.636973</td>
+</tr>
+<tr class="odd">
+<td>6 or more</td>
+<td>4.469124</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ol start="5" type="a">
+<li><p>Create vectors in <code>R</code> for the observed and expected frequencies.</p></li>
+<li><p>Calculate the <code>χ2</code> for this hypothesis test, using <code>chisq.test()$statistic</code>.</p></li>
+<li><p>How many degrees of freedom should this <code>χ2</code> goodness of fit test have?</p></li>
+<li><p>Calculate the P-value for this test, using <code>pchisq()</code>.</p></li>
+<li><p>Summarize the results of this test. Does the frequency distribution of out-of-hospital cardiac events follow a Poisson distribution?</p></li>
+</ol>
 <p><br><br></p>
+</section>
 </section>
 <section id="harper-adams-data-science" class="level2">
 <h2 class="anchored" data-anchor-id="harper-adams-data-science">Harper Adams Data Science</h2>
