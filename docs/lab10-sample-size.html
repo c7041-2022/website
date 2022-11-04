@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.179">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Stats Bootcamp - Lab 10 Sample size</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./img/c7041.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Lab 10 Sample size</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./" class="sidebar-logo-link">
+      <img src="./img/c7041.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Information</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Home</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">Schedule</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Part I</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab01-graph1.html" class="sidebar-item-text sidebar-link">Lab 01 Graphs I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab02-descriptives.html" class="sidebar-item-text sidebar-link">Lab 02 Describing data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab03-frequency.html" class="sidebar-item-text sidebar-link">Lab 03 Frequency data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab04-contingency.html" class="sidebar-item-text sidebar-link">Lab 04 Contingency</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab05-Gaussian.html" class="sidebar-item-text sidebar-link">Lab 05 The Gaussian</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab06-2-groups.html" class="sidebar-item-text sidebar-link">Lab 06 Two-group tests</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab07-ANOVA.html" class="sidebar-item-text sidebar-link">Lab 07 ANOVA</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab08-cor-reg.html" class="sidebar-item-text sidebar-link">Lab 08 Correlation and regression</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Part II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab09-graph2.html" class="sidebar-item-text sidebar-link">Lab 09 Graphing II</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab10-sample-size.html" class="sidebar-item-text sidebar-link active">Lab 10 Sample size</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab11-linear-mods.html" class="sidebar-item-text sidebar-link">Lab 11 Linear models</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab12-mixed-effects.html" class="sidebar-item-text sidebar-link">Lab 12 Mixed effects</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab13-likelihood.html" class="sidebar-item-text sidebar-link">Lab 13 Likelihood</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab14-GLM.html" class="sidebar-item-text sidebar-link">Lab 14 GLM</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab15-model-selection.html" class="sidebar-item-text sidebar-link">Lab 15 Model selection</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">1 Objectives</a></li>
+  <li><a href="#start-a-script" id="toc-start-a-script" class="nav-link" data-scroll-target="#start-a-script">2 Start a script!</a></li>
+  <li><a href="#experiment-planning-tools" id="toc-experiment-planning-tools" class="nav-link" data-scroll-target="#experiment-planning-tools">3 Experiment planning tools</a></li>
+  <li><a href="#random-sampling-warm-up" id="toc-random-sampling-warm-up" class="nav-link" data-scroll-target="#random-sampling-warm-up">4 Random sampling warm-up</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions" id="toc-suggested-solutions" class="nav-link" data-scroll-target="#suggested-solutions">4.1 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#plan-for-precision" id="toc-plan-for-precision" class="nav-link" data-scroll-target="#plan-for-precision">5 Plan for precision</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">6 Questions</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions-1" id="toc-suggested-solutions-1" class="nav-link" data-scroll-target="#suggested-solutions-1">6.1 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#plan-for-power" id="toc-plan-for-power" class="nav-link" data-scroll-target="#plan-for-power">7 Plan for power</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions-2" id="toc-suggested-solutions-2" class="nav-link" data-scroll-target="#suggested-solutions-2">7.1 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#power-tools-in-r" id="toc-power-tools-in-r" class="nav-link" data-scroll-target="#power-tools-in-r">8 Power tools in <code>R</code></a>
+  <ul class="collapse">
+  <li><a href="#try-the-pwr-package" id="toc-try-the-pwr-package" class="nav-link" data-scroll-target="#try-the-pwr-package">8.1 Try the <code>{pwr}</code> package</a></li>
+  <li><a href="#suggested-solutions-3" id="toc-suggested-solutions-3" class="nav-link" data-scroll-target="#suggested-solutions-3">8.2 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#plan-a-2-x-2-experiment" id="toc-plan-a-2-x-2-experiment" class="nav-link" data-scroll-target="#plan-a-2-x-2-experiment">9 Plan a 2 x 2 experiment</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions-4" id="toc-suggested-solutions-4" class="nav-link" data-scroll-target="#suggested-solutions-4">9.1 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#plan-a-2-treatment-experiment" id="toc-plan-a-2-treatment-experiment" class="nav-link" data-scroll-target="#plan-a-2-treatment-experiment">10 Plan a 2-treatment experiment</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions-5" id="toc-suggested-solutions-5" class="nav-link" data-scroll-target="#suggested-solutions-5">10.1 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#harper-adams-data-science" id="toc-harper-adams-data-science" class="nav-link" data-scroll-target="#harper-adams-data-science">Harper Adams Data Science</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Lab 10 Sample size</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab10-skellington.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">Survivors</figcaption><p></p>
+</figure>
+</div>
+</center>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">1 Objectives</h2>
+<ul>
+<li><p>Evaluate principles to increase sampling precision in experimental design</p></li>
+<li><p>Evaluate power of sampling</p></li>
+<li><p>Demonstrate power tools in <code>R</code>, like <code>{pwr}</code></p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<p><a href="data/c7041-lab-data.zip">Data for all labs (unzip to your working directory)</a></p>
+<p><a href="scripts/template_script.R">Template script</a></p>
+<p><br></p>
+</section>
+<section id="start-a-script" class="level2">
+<h2 class="anchored" data-anchor-id="start-a-script">2 Start a script!</h2>
+<p>For this and every lab or project, begin by:</p>
+<ul>
+<li><p><strong>starting a new script</strong></p></li>
+<li><p><strong>create a good header section and table of contents</strong></p></li>
+<li><p><strong>save the script file with an informative name</strong></p></li>
+<li><p><strong>set your working directory</strong></p></li>
+</ul>
+<p>Aim to make the script useful as a future reference for doing things in <code>R</code> - this will come in handy for projects and assessments!</p>
+<p><br></p>
+</section>
+<section id="experiment-planning-tools" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-planning-tools">3 Experiment planning tools</h2>
+<p><br></p>
+<p>Before carrying out a time- and fund-consuming experiment, it is useful to get an idea of what to expect from the results. How big an effect are you expecting? What are the chances that you would detect it? What sample size would you need to have a reasonable chance of succeeding? How narrow a confidence interval around the estimated effect would you be happy with? In this lab we will show how <code>R</code> can be used to address some of these questions.</p>
+<p><br></p>
+</section>
+<section id="random-sampling-warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="random-sampling-warm-up">4 Random sampling warm-up</h2>
+<p><br></p>
+<p>To begin, let’s get some practice sampling (randomly) categorical and Gaussian-distributed data from a population. The intention is to use sample</p>
+<p><br></p>
+<ol type="1">
+<li><p>Randomly sample 20 observations from a population having two groups of individuals, “infected” and “uninfected”, in equal proportions. Summarize the results in a frequency table.</p></li>
+<li><p>Repeat the previous step five times to convince yourself that the outcome varies from sample to sample.</p></li>
+<li><p>Sample 18 individuals from a population having two groups of individuals, “mated” and “unmated”, where the proportion mated in the population is 0.7. Summarize the results in a frequency table.</p></li>
+<li><p>Repeat the previous step five times to convince yourself that the outcome varies from sample to sample.</p></li>
+<li><p>Sample 30 observations from a Gaussian-distributed population having mean 0 and standard deviation 2. Plot the results in a histogram.</p></li>
+<li><p>Repeat the following 5 times and calculate the mean each time: sample 30 observations from a Gaussian-distributed population having mean 0 and standard deviation 2. Convince yourself that the sample mean is different each time.</p></li>
+</ol>
+<p><br></p>
+<section id="suggested-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions">4.1 Suggested solutions</h3>
+<p><br></p>
+<p>All lines below beginning with double hashes are <code>R</code> output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># run this several times in your own script </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and see how the output changes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"infected"</span>,<span class="st">"uninfected"</span>), </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="dv">20</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "uninfected" "uninfected" "infected"   "infected"   "infected"  
+ [6] "uninfected" "uninfected" "uninfected" "infected"   "uninfected"
+[11] "uninfected" "infected"   "infected"   "infected"   "infected"  
+[16] "infected"   "infected"   "infected"   "infected"   "infected"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"mated"</span>,<span class="st">"unmated"</span>), <span class="at">size =</span> <span class="dv">18</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>,.<span class="dv">3</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>z
+  mated unmated 
+     13       5 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab10-sample-size_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab10-sample-size_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="plan-for-precision" class="level2">
+<h2 class="anchored" data-anchor-id="plan-for-precision">5 Plan for precision</h2>
+<p>Consider an experiment to estimate mate preference of females of a species of jumping spider. Each independent trial involves presenting a female spider with two tethered males. One of the males is from her own species, and the other is from its sister species. To avoid <a href="https://en.wikipedia.org/wiki/Pseudoreplication">pseudoreplication</a>, females are tested only once and males are replaced between tests. You want to estimate p, the proportion of female spiders that choose males of their own species. Before carrying out the experiment, it is useful to generate data under different scenarios to get a sense of the sample size you would need to estimate preference with sufficient precision.</p>
+<p><br></p>
+<section id="estimate-weak-or-no-preference" class="level4">
+<h4 class="anchored" data-anchor-id="estimate-weak-or-no-preference">5.1 Estimate weak or no preference</h4>
+<p>We’ll start with the case of weak or no preference: Imagine that females choose males essentially randomly (p = 0.5), with half choosing the male from her own species and the other half picking the male of the other species. How much data would you need to demonstrate this (and convince your skeptical supervisory committee)? One idea is to collect data and use it to test the null hypothesis of no preference. If the null hypothesis is true, you should fail to reject it. However, this won’t be very convincing to your committee. Failing to reject a null hypothesis is inconclusive by itself. Maybe your test won’t have much power.</p>
+<p>A second idea is to plan your sample size so as to obtain a narrow confidence interval (i.e.&nbsp;having high precision) for the strength of preference. If, at the end of your experiment, you end up with an estimate of p close to 0.5 AND your 95% confidence interval for p is relatively narrow, you’ll be in a strong position to say that the true preference really is weak, even if you can’t say it is exactly 0.5. What sample size is necessary to achieve a reasonably narrow confidence interval in this case? Investigate this question by simulating data.</p>
+<p><br></p>
+</section>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">6 Questions</h2>
+<ol type="1">
+<li><p>Randomly sample n = 10 females from a population having equal numbers of “successes” (females who choose males of her own species) and “failures” (females who choose males of the other species). What was the proportion of successes in your sample?</p></li>
+<li><p>Using the data from step 1, calculate an approximate 95% confidence interval for the population proportion of successes. Use the Agresti-Coull method in the binom package in R, which you will need to install if you haven’t already done so.</p></li>
+</ol>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if(!require("binom")) install.packages("binom")</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>To obtain the 95% confidence interval, use the <code>binom.confint</code> function explained below. The argument x is the number of “successes” in your generated sample (number of females who chose males of her own species) and n is the sample size (number of females tested).</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gets the confidence interval</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span> <span class="co"># number of trials</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">27</span> <span class="co"># number of successes</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>myCI <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(x, n, <span class="at">method =</span> <span class="st">"ac"</span>)  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(myCI)   <span class="co"># shows the results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         method  x  n mean     lower     upper
+1 agresti-coull 27 50 0.54 0.4039603 0.6703319</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>myCI<span class="sc">$</span>lower    <span class="co"># lower limit of confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4039603</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>myCI<span class="sc">$</span>upper    <span class="co"># upper limit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6703319</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Obtain the 95% confidence interval for the proportion using your data from step 1. What was the span of your confidence interval (upper limit minus lower limit)? Can you be confident that the true population proportion is 0.5 or very close to it?</p>
+<p><br></p>
+<ol start="3" type="1">
+<li>Repeat steps 1 and 2 five times and keep a record of the confidence intervals you obtained. What was the lowest value for the span of the confidence interval from the 5 samples?</li>
+</ol>
+<p><br></p>
+<ol start="4" type="1">
+<li>You can speed up the effort if you create a for loop in R that automatically repeats steps 1 and 2 as many times as you decide. A loop that repeats ten times would look something like the following. The “i” in this loop is a counter, starting at 1 and increasing by 1 each time the commands in the loop are executed. Don’t forget to include a command inside the loop to print each result.</li>
+</ol>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  [paste in your R commands for steps 1 and 2 here]</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ol start="5" type="1">
+<li>Increase the sample size to n = 20 and run the loop from step 4 again. How much narrower are the confidence interval spans? Are the spans adequate?</li>
+</ol>
+<p><br></p>
+<ol start="6" type="1">
+<li>By modifying the sample size and re-running the loop a bunch of times, find a sample size (ballpark, no need to be exact at this point) that usually produces a confidence interval having a span no greater than 0.2. This would be the span of a confidence interval that had, e.g., a lower limit of 0.4 and an upper limit of 0.6. Surely this would be convincing evidence that the mate preference really was weak.</li>
+</ol>
+<p>By this point you might wish to speed things up by saving the results of each iteration to a vector or data frame rather than print the results to the screen. This will make it possible to increase the number of iterations (say, to 100 times instead of just 10) for a given value of n.</p>
+<p><br></p>
+<ol start="7" type="1">
+<li>Given the results of step 6, you would now have some design options before you. Is the sample size n that your simulation indicated was needed to generate a confidence interval of span 0.2 realistic? In other words, would an experiment with so many female spiders (and so many males) be feasible? If the answer is yes, great, get started on your experiment! If the answer is no, the sample size required is unrealistically large, then you have some decisions to make:</li>
+</ol>
+<ul>
+<li><p>Forget all about doing the experiment. (Consider a thesis based on theory instead.)</p></li>
+<li><p>Revise your concept of what represents a “narrow” confidence interval. Maybe a confidence interval for p spanning, say, 0.3 to 0.7 (a span of 0.4) would be good enough to allow you to conclude that the preference was “not strong”. This would not require as big a sample size as a narrower interval.</p></li>
+</ul>
+<p><br></p>
+<ol start="8" type="1">
+<li>Repeat the above procedures to find a sample size that usually gives a confidence interval having a span of 0.4 or less.</li>
+</ol>
+<p><br></p>
+<section id="suggested-solutions-1" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-1">6.1 Suggested solutions</h3>
+<p><br></p>
+<p>All lines below beginning with double hashes are <code>R</code> output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 10 females from a population having equal numbers </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># of successes (1) and failures (0)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">size =</span> <span class="dv">10</span>, <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0 1 1 0 0 0 0 0 0 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 1 1 0 0 0 1 1 1 1 0</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)<span class="sc">/</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.6</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. </span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>myCI <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="fu">sum</span>(x), <span class="fu">length</span>(x), <span class="at">method =</span> <span class="st">"ac"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>myCI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         method x  n mean     lower     upper
+1 agresti-coull 3 10  0.3 0.1033384 0.6076747</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">##          method x  n mean     lower     upper</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 agresti-coull 6 10  0.6 0.3116041 0.8328894</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>mySpan <span class="ot">&lt;-</span> myCI<span class="sc">$</span>upper <span class="sc">-</span> myCI<span class="sc">$</span>lower</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>mySpan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5043363</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.5212853</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 &amp; 4. </span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize empty vector "span"</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>span <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">size =</span> <span class="dv">10</span>, <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    myCI <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="fu">sum</span>(x), <span class="dv">10</span>, <span class="at">method =</span> <span class="st">"ac"</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    span[i] <span class="ot">&lt;-</span> myCI<span class="sc">$</span>upper <span class="sc">-</span> myCI<span class="sc">$</span>lower</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(span)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4747451</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.4747451</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 5.</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span>       <span class="co"># sample size each time</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>nruns <span class="ot">&lt;-</span> <span class="dv">100</span>  <span class="co"># number of runs</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>span <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nruns){</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">size =</span> n, <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    myCI <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="fu">sum</span>(x), n, <span class="at">method =</span> <span class="st">"ac"</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    span[i] <span class="ot">&lt;-</span> myCI<span class="sc">$</span>upper <span class="sc">-</span> myCI<span class="sc">$</span>lower</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(span, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab10-sample-size_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">93</span>       <span class="co"># sample size each time</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>nruns <span class="ot">&lt;-</span> <span class="dv">100</span>  <span class="co"># number of runs</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>span <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nruns){</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">size =</span> n, <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    myCI <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="fu">sum</span>(x), n, <span class="at">method =</span> <span class="st">"ac"</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    span[i] <span class="ot">&lt;-</span> myCI<span class="sc">$</span>upper <span class="sc">-</span> myCI<span class="sc">$</span>lower</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(span, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab10-sample-size_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8.</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">21</span>       <span class="co"># sample size each time</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>nruns <span class="ot">&lt;-</span> <span class="dv">100</span>  <span class="co"># number of runs</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>span <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nruns){</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">size =</span> n, <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    myCI <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="fu">sum</span>(x), n, <span class="at">method =</span> <span class="st">"ac"</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    span[i] <span class="ot">&lt;-</span> myCI<span class="sc">$</span>upper <span class="sc">-</span> myCI<span class="sc">$</span>lower</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(span, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab10-sample-size_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="plan-for-power" class="level2">
+<h2 class="anchored" data-anchor-id="plan-for-power">7 Plan for power</h2>
+<p><br></p>
+<p>Assume that the preference p really is different from 0.5, and use null hypothesis significance testing to detect it. What strength of preference would we like to be able to detect in our experiment? To pick an extreme case, if the true proportion of females in the population choosing a male from her own species is 0.51 rather than 0.50, you would need an enormous sample size to detect it. But we don’t really care about such a small effect. Let’s start instead with the more realistic proportion p = 0.7. What sample size would be needed to detect it with reasonably high probability?</p>
+<p><br></p>
+<ol type="1">
+<li>Sample 20 females from a population in which the true fraction of “successes” is 0.7</li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li>Apply the binomial test to your sample, to test the null hypothesis that the population proportion is 0.5. The binomial test calculates the exact 2-tailed probability of a result as extreme or more extreme as that observed if the null hypothesis is true. The method is implemented in R in the following command,</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># z &lt;- binom.test(x, n, p = 0.5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>where x is the observed number of successes in your sample from step 1, and n is the sample size. z here is an object that stores the result. To see the results of the test enter print(z) or just z in the command line. If you just want to see the resulting P-value of the test, enter this instead:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># z$p.value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Did you reject the null hypothesis?</p>
+<p><br></p>
+<ol start="3" type="1">
+<li>Create a loop to repeat steps 1 and 2 ten times. In what fraction of iterations was the null hypothesis rejected?</li>
+</ol>
+<p><br></p>
+<ol start="4" type="1">
+<li>By modifying the sample size and re-running the loop multiple times, find a sample size (ballpark, no need to be exact at this point) that usually results in the null hypothesis being rejected. Compare your results to those from the confidence interval simulation above.</li>
+</ol>
+<p><br></p>
+<ol start="5" type="1">
+<li>Is the sample size you determined feasible in an experiment? If the answer is yes, great! If the answer is no, because the sample size required is too large, then you have some decisions to make. You could decide not to run the experiment after all. Or, you could revise your aims. Perhaps your committee would be happy if you if you could detect a preference of 0.8 instead of 0.7.</li>
+</ol>
+<p><br></p>
+<section id="suggested-solutions-2" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-2">7.1 Suggested solutions</h3>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Sample 20 females from a population in which the true fraction of "successes" is 0.7</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"success"</span>,<span class="st">"failure"</span>), <span class="at">size =</span> <span class="dv">20</span>, <span class="fu">c</span>(<span class="fl">0.7</span>,<span class="fl">0.3</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>nsuccess <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">which</span>(x <span class="sc">==</span> <span class="st">"success"</span>))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Apply the binomial test</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">binom.test</span>(nsuccess, <span class="dv">20</span>, <span class="fl">0.5</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04138947</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Repeat 10 times</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"success"</span>,<span class="st">"failure"</span>), <span class="at">size =</span> <span class="dv">20</span>, <span class="fu">c</span>(<span class="fl">0.7</span>,<span class="fl">0.3</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    nsuccess <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">which</span>(x <span class="sc">==</span> <span class="st">"success"</span>))</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    z <span class="ot">&lt;-</span> <span class="fu">binom.test</span>(nsuccess, <span class="dv">20</span>, <span class="fl">0.5</span>)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    result[i] <span class="ot">&lt;-</span> z<span class="sc">$</span>p.value</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(result <span class="sc">&lt;=</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 3 4 5 7 9</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Repeating 100 times shows that a sample size of n = 50 females </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   seems to reject Ho roughly 80% of the time</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"success"</span>,<span class="st">"failure"</span>), <span class="at">size =</span> n, <span class="fu">c</span>(<span class="fl">0.7</span>,<span class="fl">0.3</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    nsuccess <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">which</span>(x <span class="sc">==</span> <span class="st">"success"</span>))</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    z <span class="ot">&lt;-</span> <span class="fu">binom.test</span>(nsuccess, n, <span class="fl">0.5</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    result[i] <span class="ot">&lt;-</span> z<span class="sc">$</span>p.value</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(result <span class="sc">&lt;=</span> <span class="fl">0.05</span>))<span class="sc">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.66</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="power-tools-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="power-tools-in-r">8 Power tools in <code>R</code></h2>
+<p>Simulating random samples on the computer, as we did above, is a great way to investigate power and sample size requirements. It works in any situation and can mimic, even complicated study designs. However, a number of quantitative tools have been developed for mainly simple designs that do the work for you.</p>
+<section id="try-the-pwr-package" class="level3">
+<h3 class="anchored" data-anchor-id="try-the-pwr-package">8.1 Try the <code>{pwr}</code> package</h3>
+<p><br></p>
+<p>Load the <code>pwr</code> library and use it to do some of the calculations for you. See the [Sample size and power page here for tips](https://dsgarage.netlify.app/misc-r/04-sample-size-power/.</p>
+<p><br></p>
+<ol type="1">
+<li>Use the <code>pwr</code> package to calculate the approximate minimum sample size needed to detect a preference of 0.6 with a power of 0.80 (i.e., the null hypothesis would be rejected in 80% of experiments). The null hypothesis is that the population proportion p of females who would choose the male from her own population is 0.5. The goal is to design an experiment that has a high probability of rejecting the null hypothesis when p is 0.6.</li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li>Repeat the above procedure for a preference of 0.7, 0.8, and 0.9.</li>
+</ol>
+<p><br></p>
+</section>
+<section id="suggested-solutions-3" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-3">8.2 Suggested solutions</h3>
+<p><br></p>
+<p>All lines below beginning with double hashes are R output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You might need to install {pwr}</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">ES.h</span>(<span class="fl">0.5</span>, <span class="fl">0.6</span>)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">pwr.p.test</span>(h, <span class="at">power =</span> <span class="fl">0.8</span>)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 193.5839</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat for range values of pref</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>pref <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">0.7</span>, <span class="fl">0.8</span>, <span class="fl">0.9</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(pref)){</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> <span class="fu">ES.h</span>(<span class="fl">0.5</span>, pref[i])</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> <span class="fu">pwr.p.test</span>(h, <span class="at">power =</span> <span class="fl">0.8</span>)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(z<span class="sc">$</span>n)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 193.5839
+[1] 46.34804
+[1] 18.95431
+[1] 9.127904</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="plan-a-2-x-2-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="plan-a-2-x-2-experiment">9 Plan a 2 x 2 experiment</h2>
+<p><br></p>
+<p>In an experiment on the great tit, two eggs were removed from 30 nests, which caused the attending females to lay one more egg. 35 un-manipulated nests served as controls. The response variable was incidence of malaria in female great tits at the end of the experiment. The results of the experiment are tabulated below.</p>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab10-malaria-table.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">Survivors</figcaption><p></p>
+</figure>
+</div>
+</center>
+<p><br></p>
+<p>Imagine that you are considering repeating this experiment on a different species of songbird. What are the chances of detecting an effect? What sample sizes should you plan?</p>
+<p><br></p>
+<ol type="1">
+<li>Randomly sample 30 females from a control population in which the fraction of infected birds is 0.2 (the fraction in the tit data). Sample also 30 females from an experimental population in which the fraction of infected birds is 0.5 (the fraction in the tit data). Combined the samples into a data frame. Include a variable indicating treatment.</li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li>Display the 2 x 2 frequency table from your random sample. Is there an association?</li>
+</ol>
+<p><br></p>
+<ol start="3" type="1">
+<li>Repeat steps 1-3 three times to convince yourself that the answer is different each time.</li>
+</ol>
+<p><br></p>
+<ol start="4" type="1">
+<li>Using the tools in pwr calculate the sample size needed to achieve 80% power in this design.</li>
+</ol>
+<p><br></p>
+<section id="suggested-solutions-4" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-4">9.1 Suggested solutions</h3>
+<p><br></p>
+<p>All lines below beginning with double hashes are R output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. </span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"malaria"</span>, <span class="st">"no"</span>),</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">30</span>,</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>)</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"malaria"</span>, <span class="st">"no"</span>),</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">30</span>,</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"treat"</span>), <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">30</span>))</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">response =</span> <span class="fu">c</span>(x, y),</span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">treatment =</span> z,</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.</span></span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mydata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         treatment
+response  control treat
+  malaria       7    18
+  no           23    12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Repeat above</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. </span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>control <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.8</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>treatment <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>probs <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(<span class="at">treatment =</span> treatment,</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">control =</span> control,</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen's effect size "w"</span></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">ES.w2</span>(probs<span class="sc">/</span><span class="fu">sum</span>(probs))           </span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">pwr.chisq.test</span>(w, <span class="at">df =</span> <span class="dv">1</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 79.36072</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="plan-a-2-treatment-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="plan-a-2-treatment-experiment">10 Plan a 2-treatment experiment</h2>
+<p><br></p>
+<p>Imagine that you are considering a two-treatment experiment for a numeric response variable. The treatments consist of two grazing regimes and the response variable is the number of plant species in plots at the end of the experiment. How many replicate plots should you set up? As usual, we will investigate only the case of equal sample sizes in the two groups.</p>
+<p><br></p>
+<p>We’ll assume that the number of plant species in plots has a Gaussian distribution in both treatment and control. We’ll round the numbers so that they are integers.</p>
+<p><br></p>
+<ol type="1">
+<li>Randomly sample 20 measurements from a Gaussian distribution having a mean of 10 and a variance of 10 (so the standard deviation is the square root of 10). Call this the “control” group. Let’s round the numbers so that they are integers.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;&lt; YOUR CODE HERE FOR RANDOM SAMPLE</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># control &lt;- round(control, 0)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ol start="2" type="1">
+<li>Repeat step 1 for a second sample, this time from a Gaussian distribution having a mean of 15 but the same sample variance, 10. (This is a bit unrealistic, as we would expect the variance in numbers of species to be higher as the mean increases, but never mind for now). Call this the “treatment” group. In other words, we will investigate the power of this experiment to detect a 1.5-fold change in the mean number of species from control to treatment.</li>
+</ol>
+<p><br></p>
+<ol start="3" type="1">
+<li>Assemble the samples into a data frame in “long” format, with a second variable indicating which measurements are from the control group and which are from the treatment group. Create a histogram for each of the two samples and compare the distributions by eye.</li>
+</ol>
+<p><br></p>
+<ol start="4" type="1">
+<li>Using the power.t.test command in the basic R stats package, determine the power of the above design – probability that the experiment will detect a significant difference between the treatment and control means based on random samples.</li>
+</ol>
+<p><br></p>
+<ol start="5" type="1">
+<li>Using the same command, determine the sample size that would be necessary to achieve a power of 0.80.</li>
+</ol>
+<p><br></p>
+<section id="suggested-solutions-5" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-5">10.1 Suggested solutions</h3>
+<p><br></p>
+<p>All lines below beginning with double hashes are R output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="dv">10</span>))</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">round</span>(x1,<span class="dv">0</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">15</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="dv">10</span>))</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">round</span>(x2,<span class="dv">0</span>)</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>nspecies <span class="ot">&lt;-</span> <span class="fu">c</span>(x1, x2)</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>treatment <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"treatment"</span>), <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>))</span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(nspecies, treatment, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydata, <span class="fu">aes</span>(<span class="at">x =</span> nspecies)) <span class="sc">+</span> </span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"goldenrod"</span>, <span class="at">col =</span> <span class="st">"black"</span>, </span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">closed =</span> <span class="st">"left"</span>, <span class="at">binwidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of species"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span> </span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> treatment, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>)<span class="sc">+</span></span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab10-sample-size_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4.</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">power.t.test</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">delta =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>power</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3377084</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5.</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">power.t.test</span>(<span class="at">delta =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 63.76576</code></pre>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="harper-adams-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="harper-adams-data-science">Harper Adams Data Science</h2>
+<p><img src="img/HDS.png" class="img-fluid" alt="Harper Data Science" width="125"></p>
+<p>This module is a part of the <a href="https://www.harper-adams.ac.uk/courses/postgraduate/201194/data-science-for-global-agriculture-food-and-environment" title="MSc in Data Science">MSc in Data Science for Global Agriculture, Food, and Environment</a> at <a href="https://www.harper-adams.ac.uk/" title="Harper Adams University">Harper Adams University</a>, led by <a href="https://www.harper-adams.ac.uk/general/staff/profile/201620/Edwin-Harris/" title="Ed's Faculty page">Ed Harris</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
