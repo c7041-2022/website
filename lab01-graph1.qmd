@@ -8,11 +8,11 @@ title: "Lab 01 Graphs I"
 
 ## 1 Objectives
 
-- Review some common graph formats and when they are used
+-   Review some common graph formats and when they are used
 
-- Make graphs in R, such as histograms, bar charts, box plots, and scatter plots
+-   Make graphs in R, such as histograms, bar charts, box plots, and scatter plots
 
-- Critique basic graphs to improve readability and accurate communication
+-   Critique basic graphs to improve readability and accurate communication
 
 <br>
 
@@ -26,13 +26,13 @@ title: "Lab 01 Graphs I"
 
 For this and every lab or project, begin by:
 
-- **starting a new script**
+-   **starting a new script**
 
-- **create a good header section and table of contents**
+-   **create a good header section and table of contents**
 
-- **save the script file with an informative name**
+-   **save the script file with an informative name**
 
-- **set your working directory**
+-   **set your working directory**
 
 Aim to make the script useful as a future reference for doing things in `R` - this will come in handy for projects and assessments!
 
@@ -40,10 +40,9 @@ Aim to make the script useful as a future reference for doing things in `R` - th
 
 ## 3 Learning the tools
 
-
 ### 3.1 `{ggplot2}` package
 
-The function `ggplot()` allows us to graph most kinds of data relatively simply. The syntax is slightly odd but very flexible. We'll practice  specific commands for several types of plots below.
+The function `ggplot()` allows us to graph most kinds of data relatively simply. The syntax is slightly odd but very flexible. We'll practice specific commands for several types of plots below.
 
 To begin, remember to install ggplot2 if need to and then load ggplot2 with the `library()` function:
 
@@ -62,11 +61,11 @@ library(ggplot2)
 
 <br>
 
-Graphing in `{ggplot2}` is slightly different than with the base `R` plot functions (like `plot()`, `boxplot()`, `hist()`, etc.).  To make a graph with `ggplot()`, you need to specify **at least two elements in your command**. 
+Graphing in `{ggplot2}` is slightly different than with the base `R` plot functions (like `plot()`, `boxplot()`, `hist()`, etc.). To make a graph with `ggplot()`, you need to specify **at least two elements in your command**.
 
-1. First part: Use the function `ggplot()` itself, to specify which data frame you want to use and also which variables are to be plotted. 
+1.  First part: Use the function `ggplot()` itself, to specify which data frame you want to use and also which variables are to be plotted.
 
-2. Second part:  Tell `R` what kind of graph to make using a `geom()` function. 
+2.  Second part: Tell `R` what kind of graph to make using a `geom()` function.
 
 The odd part is that these two parts are put together with a `+` sign. It's simplest to see this with an example. We'll draw a histogram with `ggplot()` in the next section.
 
@@ -97,7 +96,6 @@ ggplot(titanic, aes(x=age)) + geom_histogram()
 
 `ggplot()`
 
-
 Notice that there are two functions called here, put together in a single command with a plus sign. The first function is `ggplot()`, and it has two input arguments. Listed first is `titanicData`; this is the name of the data frame containing the variables that we want to graph. The second input to ggplot is an `aes()` function. In this case, the `aes()` function tells R that we want Age to be the x-variable (i.e. the variable that is displayed along the x-axis). (The "aes" stands for "aesthetics"," but if you're like me it won't necessarily help you remember it any better)
 
 `geom_histogram()`
@@ -125,11 +123,10 @@ ggplot(titanic, aes(x=sex)) + geom_bar(stat="count")
 
 A boxplot is a convenient way of showing the "frequency distribution"central tendency" of data for a numerical variable in one or more groups. Here's the code to draw a boxplot for age in the titanic data set, separately for each sex:
 
-```{r} 
+```{r}
 ggplot(titanic, aes(x=sex, y=age)) + geom_boxplot()
 
 ```
-
 
 Notice that the `y` variable here is `age`, and `x` is the categorical variable `sex` that winds up on the x-axis. See the result below, and look at where the variables are. The other new feature here is the new geom function, `geom_boxplot()`.
 
@@ -141,7 +138,7 @@ Here the thick bar in the middle of each boxplot is the median of that group. Th
 
 The last graphical style that we will mention here is the scatter plot, which shows the relationship between two numerical variables.
 
-We will use a dataset showing the relationship between the ornamentation of father guppies and the sexual attractiveness of their sons, using the file **guppy-attractiveness.csv**. 
+We will use a dataset showing the relationship between the ornamentation of father guppies and the sexual attractiveness of their sons, using the file **guppy-attractiveness.csv**.
 
 ```{r}
 # Example code to load the data
@@ -151,7 +148,6 @@ guppy <-read.csv("data/guppy-attractiveness.csv", header =T)
 head(guppy)
 
 ```
-
 
 <br>
 
@@ -190,9 +186,9 @@ ggplot(guppy,
 
 <br>
 
-The can see the labels included in quotes inside the xlab and ylab arguments now appear on your graph. 
+The can see the labels included in quotes inside the xlab and ylab arguments now appear on your graph.
 
-It can also be nice to remove the default gray background, to make what some feel is a cleaner graph. Try adding `+ theme_classic()` to the end of one of your lines of code making a graph, to see whether you prefer the result to the default design.  Also, you could add a title by adding the labs function and setting the main argument to a character string `+ labs(title = "your title")`.
+It can also be nice to remove the default gray background, to make what some feel is a cleaner graph. Try adding `+ theme_classic()` to the end of one of your lines of code making a graph, to see whether you prefer the result to the default design. Also, you could add a title by adding the labs function and setting the main argument to a character string `+ labs(title = "your title")`.
 
 <br>
 
@@ -215,7 +211,7 @@ The help pages in `R` (using `help()` with the name of the function you would li
 
 <br>
 
-```r
+``` r
 help(ggplot)
 ```
 
@@ -308,9 +304,7 @@ filter(bat_tongues,tongue_length>80)
 
 ```
 
-<br>
-The unusual species is *Anoura fistulata* [See a photo here](https://www.researchgate.net/figure/Partially-extended-tongue-of-A-fistulata-ICN-19653-from-Genova-Narino-Arrow-showing_fig4_235352132). This species has an outrageously long tongue, which it uses to collect nectar from a particular flower (can you guess what feature of the flower has led to the evolution of such a long tongue?). See the article by [Muchhala (2006)](https://www.nature.com/articles/444701a) to learn more about the biology of this strange bat.
-
+<br> The unusual species is *Anoura fistulata* [See a photo here](https://www.researchgate.net/figure/Partially-extended-tongue-of-A-fistulata-ICN-19653-from-Genova-Narino-Arrow-showing_fig4_235352132). This species has an outrageously long tongue, which it uses to collect nectar from a particular flower (can you guess what feature of the flower has led to the evolution of such a long tongue?). See the article by [Muchhala (2006)](https://www.nature.com/articles/444701a) to learn more about the biology of this strange bat.
 
 <br>
 

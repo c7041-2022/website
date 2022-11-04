@@ -4,6 +4,7 @@ project:
 
 website:
   title: "R Stats Bootcamp"
+  favicon: "img/c7041.png"
   sidebar:
     logo: "img/c7041.png"
     style: "docked"
