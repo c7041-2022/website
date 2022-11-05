@@ -283,7 +283,9 @@ Use the `countries` data again. Plot the relationship between `continent` and `f
 
 <br>
 
-### 6.5 Muchhala (2006) measured the length of the tongues of eleven different species of South American bats, as well as the length of their palates (to get an indication of the size of their mouths). All of these bats use their tongues to feed on nectar from flowers. Data from the article are given in the file `BatTongues.csv`. In this file, both `Tongue Length` and `Palette Length` are given in millimeters.
+### 6.5 
+
+Muchhala (2006) measured the length of the tongues of eleven different species of South American bats, as well as the length of their palates (to get an indication of the size of their mouths). All of these bats use their tongues to feed on nectar from flowers. Data from the article are given in the file `BatTongues.csv`. In this file, both `Tongue Length` and `Palette Length` are given in millimeters.
 
 Import the data and inspect it using `summary()`. You can call the data set whatever you like, but in one of the later steps we'll assume it is called `bat_tongues`. Each value for `tongue length` and `palate length` is a species mean, calculated from a sample of individuals per species.
 
@@ -308,7 +310,9 @@ filter(bat_tongues,tongue_length>80)
 
 <br>
 
-### 6.6 Pick one of the plots you made using `R` today. What could be improved about this graph to make it a more effective presentation of the data?
+### 6.6 
+
+Pick one of the plots you made using `R` today. What could be improved about this graph to make it a more effective presentation of the data?
 
 <br><br>
 
