@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -222,7 +285,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">1 Objectives</a></li>
+  <li><a href="#start-a-script" id="toc-start-a-script" class="nav-link" data-scroll-target="#start-a-script">2 Start a script!</a></li>
+  <li><a href="#generalized-linear-models-important-stuff" id="toc-generalized-linear-models-important-stuff" class="nav-link" data-scroll-target="#generalized-linear-models-important-stuff">3 Generalized linear models (important stuff)</a></li>
+  <li><a href="#example-natural-selection-in-song-sparrows" id="toc-example-natural-selection-in-song-sparrows" class="nav-link" data-scroll-target="#example-natural-selection-in-song-sparrows">4 Example: Natural selection in song sparrows</a>
+  <ul class="collapse">
+  <li><a href="#read-and-examine-the-data" id="toc-read-and-examine-the-data" class="nav-link" data-scroll-target="#read-and-examine-the-data">4.1 Read and examine the data</a></li>
+  <li><a href="#fit-a-generalized-linear-model" id="toc-fit-a-generalized-linear-model" class="nav-link" data-scroll-target="#fit-a-generalized-linear-model">4.2 Fit a generalized linear model</a></li>
+  <li><a href="#suggested-solutions" id="toc-suggested-solutions" class="nav-link" data-scroll-target="#suggested-solutions">4.3 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#example-crab-klepto-copulation" id="toc-example-crab-klepto-copulation" class="nav-link" data-scroll-target="#example-crab-klepto-copulation">5 Example: Crab klepto-copulation</a>
+  <ul class="collapse">
+  <li><a href="#read-and-examine-the-data-1" id="toc-read-and-examine-the-data-1" class="nav-link" data-scroll-target="#read-and-examine-the-data-1">5.1 Read and examine the data</a></li>
+  <li><a href="#fit-a-generalized-linear-model-1" id="toc-fit-a-generalized-linear-model-1" class="nav-link" data-scroll-target="#fit-a-generalized-linear-model-1">5.2 Fit a generalized linear model</a></li>
+  <li><a href="#suggested-solutions-1" id="toc-suggested-solutions-1" class="nav-link" data-scroll-target="#suggested-solutions-1">5.3 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#example-prions---resistance-is-not-futile-trekkie-reference" id="toc-example-prions---resistance-is-not-futile-trekkie-reference" class="nav-link" data-scroll-target="#example-prions---resistance-is-not-futile-trekkie-reference">6 Example: Prions -&gt; resistance is not futile (Trekkie reference)</a>
+  <ul class="collapse">
+  <li><a href="#read-and-examine-the-data-2" id="toc-read-and-examine-the-data-2" class="nav-link" data-scroll-target="#read-and-examine-the-data-2">6.1 Read and examine the data</a></li>
+  <li><a href="#fit-a-generalized-linear-model-2" id="toc-fit-a-generalized-linear-model-2" class="nav-link" data-scroll-target="#fit-a-generalized-linear-model-2">6.2 Fit a generalized linear model</a></li>
+  <li><a href="#suggested-solutions-2" id="toc-suggested-solutions-2" class="nav-link" data-scroll-target="#suggested-solutions-2">6.3 Suggested solutions</a></li>
+  </ul></li>
   <li><a href="#harper-adams-data-science" id="toc-harper-adams-data-science" class="nav-link" data-scroll-target="#harper-adams-data-science">Harper Adams Data Science</a></li>
   </ul>
 </nav>
@@ -246,9 +329,559 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab14-jelly.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">Jellyfish</figcaption><p></p>
+</figure>
+</div>
+</center>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">1 Objectives</h2>
+<ul>
+<li><p>Fit generalized linear models with <code>R</code></p></li>
+<li><p>Evaluate GLM assumptions</p></li>
+<li><p>Evaluate statistical and graphical results for GLM</p></li>
+</ul>
+<p><br></p>
+<p><a href="data/c7041-lab-data.zip">Data for all labs (unzip to your working directory)</a></p>
+<p><a href="scripts/template_script.R">Template script</a></p>
+<p><br></p>
+</section>
+<section id="start-a-script" class="level2">
+<h2 class="anchored" data-anchor-id="start-a-script">2 Start a script!</h2>
+<p>For this and every lab or project, begin by:</p>
+<ul>
+<li><p><strong>starting a new script</strong></p></li>
+<li><p><strong>create a good header section and table of contents</strong></p></li>
+<li><p><strong>save the script file with an informative name</strong></p></li>
+<li><p><strong>set your working directory</strong></p></li>
+</ul>
+<p>Aim to make the script useful as a future reference for doing things in <code>R</code> - this will come in handy for projects and assessments!</p>
+<p><br></p>
+</section>
+<section id="generalized-linear-models-important-stuff" class="level2">
+<h2 class="anchored" data-anchor-id="generalized-linear-models-important-stuff">3 Generalized linear models (important stuff)</h2>
+<p>In this lab we will fit general linear models to data, implemented in the <code>R</code> command <code>glm()</code>. A generalized linear model is useful when the response variable has a distribution other than the Gaussian distribution (like binary outcomes; like data that are counts of something), and when a transformation of the data is undesirable or impossible. Example situations include binary response data (1 or 0, dead or alive) or data that are counts (number of offspring, leaves, or tattoos). The approach is also useful in the analysis of contingency tables.</p>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab14-sparrow.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">Song sparrow</figcaption><p></p>
+</figure>
+</div>
+</center>
+</section>
+<section id="example-natural-selection-in-song-sparrows" class="level2">
+<h2 class="anchored" data-anchor-id="example-natural-selection-in-song-sparrows">4 Example: Natural selection in song sparrows</h2>
+<p>The song sparrow population on the island of Mandarte has been studied for many years by Jamie Smith, Peter Arcese, and collaborators. The birds were measured and banded and their fates on the island have recorded over many years. Here we will look for evidence of natural selection using the relationship between phenotypes and survival.</p>
+<p>The data file <code>songsparrow.csv</code> gives survival of young-of-the-year females over their first winter (1=survived, 0=died). The file includes measurements of beak and body dimensions: body mass (g), wing length, tarsus length, beak length, beak depth, beak width (all in mm), year of birth, and survival. These data were analyzed previously in D. Schluter and J. N. M Smith (1986, Evolution 40: 221-231).</p>
+<p><br></p>
+<section id="read-and-examine-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-examine-the-data">4.1 Read and examine the data</h3>
+<p><br></p>
+<ol type="1">
+<li><p>Read the data from the file and inspect the first few lines to make sure it was read correctly.</p></li>
+<li><p>We’ll be comparing survival probabilities among different years. To this end, make sure that year is a categorical variable in your data frame.</p></li>
+<li><p>Plot survival against tarsus length of female sparrows. Use a method to reduce the overlap of points (the response variable is 0 or 1) to see the patterns more clearly.</p></li>
+<li><p>Examine the plot. Can you visualize a trend? Use a smoothing method to see if any trend is present (most methods won’t constrain the curve to lie between 0 and 1, but at least you’ll get an idea).</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="fit-a-generalized-linear-model" class="level3">
+<h3 class="anchored" data-anchor-id="fit-a-generalized-linear-model">4.2 Fit a generalized linear model</h3>
+<p><br></p>
+<p>Let’s start by ignoring the fact that the data are from multiple years. We will have the option later to add year to the model to see if it makes a difference.</p>
+<ol start="5" type="1">
+<li><p>The response variable is binary. What probability distribution is appropriate to describe the error distribution around a model fit? What is an appropriate link function?</p></li>
+<li><p>Fit a generalized linear model to the data on survival and tarsus length.</p></li>
+<li><p>Use <code>visreg()</code> to visualize the model fit.</p></li>
+<li><p>Obtain the estimated regression coefficients for the fitted model. What is the interpretation of these coefficients? On a piece of paper, write down the complete formula for the model shown in the visreg plot.</p></li>
+<li><p>Use the coefficients to calculate the predicted survival probability of a song sparrow having tarsus length 20.5 mm*. Does the result agree with your plot of the fitted regression curve?</p></li>
+<li><p>The ratio (-intercept/slope) estimates the point at which probability of survival is changing most rapidly. In toxicology this point is known as the LD50. Calculate this value** and compare it visually with the fitted curve. Does it agree? Finally, the slope of the curve at a given value for the explanatory variable <code>x</code> is <code>b * p(x) * ( 1 - p(x) )</code>, where <code>b</code> is the slope coefficient of the fitted logistic regression model and <code>p(x)</code> is the predicted probability of survival at that x.</p></li>
+<li><p>Calculate the likelihood-based 95% confidence interval for the logistic regression coefficients.</p></li>
+<li><p>The <code>summary(z)</code> output for the regression coefficients also includes “z values” and P-values. What caution would you take when interpreting these P-values? Use a more accurate method to test the null hypothesis of zero slope.</p></li>
+</ol>
+<p>* -1.148577; 0.2407491</p>
+<p>** 19.58683</p>
+<p><br></p>
+</section>
+<section id="suggested-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions">4.3 Suggested solutions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(ggplot2))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(visreg))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(MASS))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.Read the data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/songsparrow.csv"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  mass wing tarsus blength bdepth bwidth year sex survival
+1 23.7 67.0   17.7     9.1    5.9    6.8 1978   f        1
+2 23.1 65.0   19.5     9.5    5.9    7.0 1978   f        0
+3 21.8 65.2   19.6     8.7    6.0    6.7 1978   f        0
+4 21.7 66.0   18.2     8.4    6.2    6.8 1978   f        1
+5 22.5 64.3   19.5     8.5    5.8    6.6 1978   f        1
+6 22.9 65.8   19.6     8.9    5.8    6.6 1978   f        1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Year as categorical variable</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x<span class="sc">$</span>year)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Plot survival against tarsus length</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(x, <span class="fu">aes</span>(tarsus, survival)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">"blue"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">size =</span> <span class="dv">3</span>, <span class="at">height =</span> <span class="fl">0.04</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Tarsus length (mm)"</span>, <span class="at">y =</span> <span class="st">"Survival"</span>) <span class="sc">+</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Examine the plot. Can you visualize a trend?</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Same plot, add trend line with geom_smooth()</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(x, <span class="fu">aes</span>(tarsus, survival)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height =</span> <span class="fl">0.04</span>, <span class="at">width =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">size =</span> <span class="dv">1</span>, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Tarsus length (mm)"</span>, <span class="at">y =</span> <span class="st">"Survival"</span>) <span class="sc">+</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Binomial distribution. Logit link function</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Fit generalized linear model</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> survival <span class="sc">~</span> tarsus, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link=</span><span class="st">"logit"</span>), </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> x)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Visualize model fit (data points added with points() )</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">visreg</span>(z, <span class="at">xvar =</span> <span class="st">"tarsus"</span>, <span class="at">scale =</span> <span class="st">'response'</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">rug =</span> <span class="cn">FALSE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">1</span>, <span class="fl">1.1</span>))</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">jitter</span>(survival, <span class="fl">0.2</span>) <span class="sc">~</span> tarsus, <span class="at">data =</span> x, </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">pch =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Estimated regression coefficients of the linear predictor</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = survival ~ tarsus, family = binomial(link = "logit"), 
+    data = x)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7292  -1.0659  -0.6273   1.0794   1.8003  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  24.6361     6.7455   3.652 0.000260 ***
+tarsus       -1.2578     0.3437  -3.659 0.000253 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 200.95  on 144  degrees of freedom
+Residual deviance: 185.04  on 143  degrees of freedom
+AIC: 189.04
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 9. Predicted survival probability of a song sparrow having tarsus length 20.5 mm</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(z, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">tarsus =</span> <span class="fl">20.5</span>), <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1 
+0.2407491 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10. LD50</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dose.p</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Dose        SE
+p = 0.5: 19.58683 0.1398026</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 11. Likelihood-based 95% confidence intervals (logit scale)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %     97.5 %
+(Intercept) 12.035020 38.6162515
+tarsus      -1.970217 -0.6157285</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 12. Test null hypothesis of zero slope</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(z, <span class="at">test =</span> <span class="st">"Chi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model: binomial, link: logit
+
+Response: survival
+
+Terms added sequentially (first to last)
+
+       Df Deviance Resid. Df Resid. Dev Pr(&gt;Chi)    
+NULL                     144     200.95             
+tarsus  1   15.908       143     185.04 6.65e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab13-golden.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">What is the likelihood of a perfect sunset?</figcaption><p></p>
+</figure>
+</div>
+</center>
+</section>
+</section>
+<section id="example-crab-klepto-copulation" class="level2">
+<h2 class="anchored" data-anchor-id="example-crab-klepto-copulation">5 Example: Crab klepto-copulation</h2>
+<p><br></p>
+<p>The horseshoe crab, <em>Limulus polyphemus</em>, has two alternative male reproductive morphs. Some males attach to females with a special appendage. The females bring these males with them when they crawl onto beaches to dig a nest and lay eggs, which the male then fertilizes. Other males are satellites, which are unattached to females but crowd around nesting pairs and obtain fertilizations. What attributes of a female horseshoe crab determine the number of satellite males she attracts on the beaches?</p>
+<p>The data file <code>satellites.csv</code> provides measurements of 173 female horseshoe crabs and records the number of satellites they attracted. The data were gathered by Brockman (1996. Satellite male groups in horseshoe crabs, <em>Limulus polyphemus</em>. Ethology 102:1-21) and were published by Agresti (2002, Categorical data analysis, 2nd ed.&nbsp;Wiley). The variables are female color, spine condition, carapace width (cm), mass (kg), and number of satellite males.</p>
+<p><br></p>
+<section id="read-and-examine-the-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-examine-the-data-1">5.1 Read and examine the data</h3>
+<ol type="1">
+<li><p>Read the data from the file. View the first few lines of data to make sure it was read correctly. Use the str command to see the variables and groups.</p></li>
+<li><p>Plot the number of satellites against the width of the carapace, a measure of female body size. Fit a smooth curve to examine the trend.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="fit-a-generalized-linear-model-1" class="level3">
+<h3 class="anchored" data-anchor-id="fit-a-generalized-linear-model-1">5.2 Fit a generalized linear model</h3>
+<ol start="3" type="1">
+<li><p>Fit a generalized linear model to the relationship between number of satellite males and female carapace width. What type of variable is the number of satellites? What probability distribution might be appropriate to describe the error distribution around a model fit? What is the appropriate link function?</p></li>
+<li><p>Visualize the model fit on the transformed scale, including confidence bands. This plot reminds us that on the transformed scale, <code>glm()</code> is fitting a straight line relationship. (Don’t worry about the points – they aren’t the transformed data, but rather are “working values” for the response variable from the last iteration of model fitting, which <code>glm()</code> uses behind the scenes to fit the model on the transformed scale.)</p></li>
+<li><p>Visualize the model fit on the original data scale. Note that is it curvilinear.</p></li>
+<li><p>Extract the estimated regression coefficients from your model object. What is the interpretation of these coefficients? On a piece of paper, write down the complete formula for your fitted model.</p></li>
+<li><p>Calculate the likelihood-based 95% confidence interval for the regression coefficients. The most useful estimate is that for the slope: exp(slope) represents the multiple to the response variable accompanying a 1-unit change in the explanatory variable. In other words, if the slope were found to be 1.2, this would indicate that a 1 cm increase in carapace width of a female is accompanied by a 1.2-fold increase in the number of male satellites.</p></li>
+<li><p>Test the null hypothesis of no relationship between number of satellite males and female carapace width. Notice how small the P-value is for the null hypothesis test for the slope. I’m afraid that this is a little optimistic. Why? Read on.</p></li>
+<li><p>When you extracted the regression coefficients from your model object, you probably saw the following line of output: “(Dispersion parameter for poisson family taken to be 1)”. What are we really assuming* here?</p></li>
+<li><p>If you did not want to rely on this assumption (or you wanted to estimate the dispersion parameter), what option is available to you? Refit a generalized linear model without making the assumption that the dispersion parameter is 1.</p></li>
+<li><p>Extract and examine the coefficients of the new glm model object. Examine the estimated dispersion parameter. Is it close to 1? On this basis, which of the two glm fits to the same data would you regard as the more reliable?</p></li>
+<li><p>How do the regression coefficients of this new fit compare with the estimates from the earlier model fit? How do the standard errors compare? Why are they larger** this time?</p></li>
+<li><p>Visualize the new model fit and compare with the plot of the earlier fit. What difference do you notice?</p></li>
+<li><p>Redo the test of significance for the slope of the relationship between number of satellite mates and female carapace width. Remember to use the F test rather than the likelihood ratio test in the anova command. How do the results compare with those from the previous fit?</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="suggested-solutions-1" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-1">5.3 Suggested solutions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(ggplot2))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(visreg))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(MASS))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Read data</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/satellites.csv"</span>, </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         color    spine width.cm nsatellites mass.kg
+1       medium both.bad     28.3           8    3.05
+2  dark-medium both.bad     22.5           0    1.55
+3 light-medium     good     26.0           9    2.30
+4  dark-medium both.bad     24.8           0    2.10
+5  dark-medium both.bad     26.0           4    2.60
+6       medium both.bad     23.8           0    2.10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Plot</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(x, <span class="fu">aes</span>(width.cm, nsatellites)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height =</span> <span class="fl">0.2</span>, <span class="at">width =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Carapace width (mm)"</span>, <span class="at">y =</span> <span class="st">"No. satellites"</span>) <span class="sc">+</span> </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Fit model to count data, Poisson distribution, log link function</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> nsatellites <span class="sc">~</span> width.cm, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>), </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> x)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Visualize model fit (transformed scale)</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">visreg</span>(z, <span class="at">xvar =</span> <span class="st">"width.cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Visualize model fit (original scale), points overlaid</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">visreg</span>(z, <span class="at">xvar =</span> <span class="st">"width.cm"</span>, <span class="at">scale =</span> <span class="st">"response"</span>, <span class="at">rug =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">jitter</span>(nsatellites, <span class="fl">0.2</span>) <span class="sc">~</span> width.cm, <span class="at">data =</span> x, <span class="at">pch =</span> <span class="dv">1</span>, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Estimated regression coefficients</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = nsatellites ~ width.cm, family = poisson(link = "log"), 
+    data = x)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.8526  -1.9884  -0.4933   1.0970   4.9221  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -3.30476    0.54224  -6.095  1.1e-09 ***
+width.cm     0.16405    0.01997   8.216  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 632.79  on 172  degrees of freedom
+Residual deviance: 567.88  on 171  degrees of freedom
+AIC: 927.18
+
+Number of Fisher Scoring iterations: 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Likelihood-based 95% confidence interval</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+(Intercept) -4.3662326 -2.2406858
+width.cm     0.1247244  0.2029871</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Optimistic test</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(z, <span class="at">test =</span> <span class="st">"Chi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model: poisson, link: log
+
+Response: nsatellites
+
+Terms added sequentially (first to last)
+
+         Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
+NULL                       172     632.79              
+width.cm  1   64.913       171     567.88 7.828e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10. Refit </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>z2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(nsatellites <span class="sc">~</span> width.cm, <span class="at">family =</span> <span class="fu">quasipoisson</span>(<span class="at">link =</span> <span class="st">"log"</span>), <span class="at">data =</span> x)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 11. Coefficients</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(z2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = nsatellites ~ width.cm, family = quasipoisson(link = "log"), 
+    data = x)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.8526  -1.9884  -0.4933   1.0970   4.9221  
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -3.30476    0.96729  -3.417 0.000793 ***
+width.cm     0.16405    0.03562   4.606 7.99e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasipoisson family taken to be 3.182205)
+
+    Null deviance: 632.79  on 172  degrees of freedom
+Residual deviance: 567.88  on 171  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 13. Visualize</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">visreg</span>(z2, <span class="at">xvar =</span> <span class="st">"width.cm"</span>, <span class="at">scale =</span> <span class="st">"response"</span>, <span class="at">rug =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">jitter</span>(nsatellites, <span class="fl">0.2</span>) <span class="sc">~</span> width.cm, <span class="at">data =</span> x, <span class="at">pch =</span> <span class="dv">1</span>, </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 14. Redo test</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(z2, <span class="at">test =</span> <span class="st">"F"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model: quasipoisson, link: log
+
+Response: nsatellites
+
+Terms added sequentially (first to last)
+
+         Df Deviance Resid. Df Resid. Dev      F    Pr(&gt;F)    
+NULL                       172     632.79                     
+width.cm  1   64.913       171     567.88 20.399 1.168e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Comment 1: By using the Poisson distribution to model the residuals, we assume that for any given value of the x-variable, the variance of y is equal to the mean of y. Typically, however, in real data the variance of y is greater than the mean of y at any given x (“overdispersion”). One reason is that a variety of factors cause variation in y, and most aren’t included in the model being fitted.</p>
+<p>Comment 2: The model is now taking account of the actual amount of variance in y for each x, which is larger than that assumed by the first model you fitted.</p>
+<p><br></p>
+</section>
+</section>
+<section id="example-prions---resistance-is-not-futile-trekkie-reference" class="level2">
+<h2 class="anchored" data-anchor-id="example-prions---resistance-is-not-futile-trekkie-reference">6 Example: Prions -&gt; resistance is not futile (Trekkie reference)</h2>
+<p><br></p>
+<p>This last example is to demonstrate the use of <code>glm()</code> to model frequencies of different combinations of two (or more) variables in a contingency table. The presence of an interaction between the variables indicates that the relative frequencies of different categories for one variable differ between categories of the other variable. In other words, the two variables are then not independent.</p>
+<p>Kuru is a prion disease (similar to Creutzfeldt–Jakob Disease) of the Fore people of highland New Guinea. It was once transmitted by the consumption of deceased relatives at mortuary feasts, a ritual that was ended by about 1960. Using archived tissue samples, Mead et al.&nbsp;(2009, New England Journal of Medicine 361: 2056-2065) investigated genetic variants that might confer resistance to kuru. The data are genotypes at codon 129 of the prion protein gene of young and elderly individuals all having the disease. Since the elderly individuals have survived long exposure to kuru, unusually common genotypes in this group might indicate resistant genotypes. The data are in the file <code>kurudata.csv</code>.</p>
+<p><br></p>
+<section id="read-and-examine-the-data-2" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-examine-the-data-2">6.1 Read and examine the data</h3>
+<ol type="1">
+<li><p>Read the data from the file. View the first few lines of data to make sure it was read correctly.</p></li>
+<li><p>Create a contingency table comparing the frequency of the three genotypes at codon 129 of the prion protein gene of young and elderly individuals (all having the disease). Notice any pattern? By comparing the frequencies between young people and older people, which genotype is likely to be more resistant to the disease?</p></li>
+<li><p>Create a grouped bar graph illustrating the relative frequencies of the three genotypes between afflicted individuals in the two age categories.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="fit-a-generalized-linear-model-2" class="level3">
+<h3 class="anchored" data-anchor-id="fit-a-generalized-linear-model-2">6.2 Fit a generalized linear model</h3>
+<ol start="4" type="1">
+<li><p>To model the frequencies you will first need to convert the contingency table to a “flat” frequency table using data.frame().</p></li>
+<li><p>Fit a generalized linear model to the frequency table. To begin, fit the additive model, i.e., use a model formula without an interaction between the two variables genotype and age.</p></li>
+<li><p>Visualize the fit of the additive model to the frequency data. Notice how the additive model is constrained from fitting the exact frequencies in each category.</p></li>
+<li><p>Repeat the model fitting but include the interaction term as well. Visualize the fit of the model to the data. Notice how this “full” model really is full – it fits the frequencies exactly.</p></li>
+<li><p>Test whether the relative frequencies of the three genotypes differs between the two age groups (i.e., whether there is a significant interaction between age and genotype).</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="suggested-solutions-2" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-2">6.3 Suggested solutions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Read the data</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/kurudata.csv"</span>, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Genotype Cohort
+1       MM    old
+2       MM    old
+3       MM    old
+4       MM    old
+5       MM    old
+6       MM    old</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Contingency table</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>Cohort <span class="ot">&lt;-</span> <span class="fu">factor</span>(x<span class="sc">$</span>Cohort, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"young"</span>,<span class="st">"old"</span>)) </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>kurutable <span class="ot">&lt;-</span> <span class="fu">table</span>(x)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>kurutable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Cohort
+Genotype young old
+      MM    22  13
+      MV    12  77
+      VV    14  14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. (Optional) Grouped bar graph </span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(x, <span class="fu">aes</span>(<span class="at">x =</span> Cohort, <span class="at">fill =</span> Genotype)) <span class="sc">+</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"count"</span>, </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">position =</span> <span class="fu">position_dodge2</span>(<span class="at">preserve=</span><span class="st">"single"</span>)) <span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cohort"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Model the frequencies</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(kurutable)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>x1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Genotype Cohort Freq
+1       MM  young   22
+2       MV  young   12
+3       VV  young   14
+4       MM    old   13
+5       MV    old   77
+6       VV    old   14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Fit additive model</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">glm</span>(Freq <span class="sc">~</span> Genotype <span class="sc">+</span> Cohort, <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>), <span class="at">data =</span> x1)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Visualize model fit</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (scale = "response" is broken, visualize on transformed scale instead)</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">visreg</span>(z, <span class="at">xvar =</span> <span class="st">"Genotype"</span>, <span class="at">by =</span> <span class="st">"Cohort"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Fit model with interaction and visualize</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (scale = "response" is broken, visualize on transformed scale instead)</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">glm</span>(Freq <span class="sc">~</span> Genotype <span class="sc">*</span> Cohort, <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>), <span class="at">data =</span> x1)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">visreg</span>(z, <span class="at">xvar =</span> <span class="st">"Genotype"</span>, <span class="at">by =</span> <span class="st">"Cohort"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab14-GLM_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Test interaction</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(z, <span class="at">test =</span> <span class="st">"Chi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model: poisson, link: log
+
+Response: Freq
+
+Terms added sequentially (first to last)
+
+                Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
+NULL                                5     96.501              
+Genotype         2   41.174         3     55.327 1.146e-09 ***
+Cohort           1   21.126         2     34.202 4.301e-06 ***
+Genotype:Cohort  2   34.202         0      0.000 3.743e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
 <p><br><br></p>
+</section>
 </section>
 <section id="harper-adams-data-science" class="level2">
 <h2 class="anchored" data-anchor-id="harper-adams-data-science">Harper Adams Data Science</h2>

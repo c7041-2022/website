@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -222,7 +285,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">1 Objectives</a></li>
+  <li><a href="#start-a-script" id="toc-start-a-script" class="nav-link" data-scroll-target="#start-a-script">2 Start a script!</a></li>
+  <li><a href="#likelihood" id="toc-likelihood" class="nav-link" data-scroll-target="#likelihood">3 Likelihood</a>
+  <ul class="collapse">
+  <li><a href="#maximum-likelihood-estimate" id="toc-maximum-likelihood-estimate" class="nav-link" data-scroll-target="#maximum-likelihood-estimate">3.1 Maximum likelihood estimate</a></li>
+  <li><a href="#log-likelihood-ratio-test" id="toc-log-likelihood-ratio-test" class="nav-link" data-scroll-target="#log-likelihood-ratio-test">3.2 Log-likelihood ratio test</a></li>
+  <li><a href="#warmup" id="toc-warmup" class="nav-link" data-scroll-target="#warmup">3.3 Warmup</a></li>
+  <li><a href="#suggested-solutions" id="toc-suggested-solutions" class="nav-link" data-scroll-target="#suggested-solutions">3.4 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#example-left-handed-flowers" id="toc-example-left-handed-flowers" class="nav-link" data-scroll-target="#example-left-handed-flowers">4 Example: Left-handed flowers</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions-1" id="toc-suggested-solutions-1" class="nav-link" data-scroll-target="#suggested-solutions-1">4.1 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#example-counting-elephants" id="toc-example-counting-elephants" class="nav-link" data-scroll-target="#example-counting-elephants">5 Example Counting elephants</a>
+  <ul class="collapse">
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">5.1 Answers</a></li>
+  </ul></li>
+  <li><a href="#example-voyaging-voles" id="toc-example-voyaging-voles" class="nav-link" data-scroll-target="#example-voyaging-voles">6 Example: Voyaging voles</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions-2" id="toc-suggested-solutions-2" class="nav-link" data-scroll-target="#suggested-solutions-2">6.1 Suggested solutions</a></li>
+  </ul></li>
+  <li><a href="#example-life-of-bees" id="toc-example-life-of-bees" class="nav-link" data-scroll-target="#example-life-of-bees">7 Example: Life of bees</a>
+  <ul class="collapse">
+  <li><a href="#suggested-solutions-3" id="toc-suggested-solutions-3" class="nav-link" data-scroll-target="#suggested-solutions-3">7.1 Suggested solutions</a></li>
+  </ul></li>
   <li><a href="#harper-adams-data-science" id="toc-harper-adams-data-science" class="nav-link" data-scroll-target="#harper-adams-data-science">Harper Adams Data Science</a></li>
   </ul>
 </nav>
@@ -246,9 +333,642 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p><br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lab13-golden.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">What is the likelihood of a perfect sunset?</figcaption><p></p>
+</figure>
+</div>
+</center>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">1 Objectives</h2>
+<ul>
+<li><p>Explore the calculation of maximum likelihood</p></li>
+<li><p>Perform the log-likelihood ratio test</p></li>
+<li><p>Evaluate statistical results for likelihood test</p></li>
+<li><p>Practice graphical display of likelihood problems</p></li>
+</ul>
+<p><br></p>
+<p><a href="data/c7041-lab-data.zip">Data for all labs (unzip to your working directory)</a></p>
+<p><a href="scripts/template_script.R">Template script</a></p>
+<p><br></p>
+</section>
+<section id="start-a-script" class="level2">
+<h2 class="anchored" data-anchor-id="start-a-script">2 Start a script!</h2>
+<p>For this and every lab or project, begin by:</p>
+<ul>
+<li><p><strong>starting a new script</strong></p></li>
+<li><p><strong>create a good header section and table of contents</strong></p></li>
+<li><p><strong>save the script file with an informative name</strong></p></li>
+<li><p><strong>set your working directory</strong></p></li>
+</ul>
+<p>Aim to make the script useful as a future reference for doing things in <code>R</code> - this will come in handy for projects and assessments!</p>
+<p><br></p>
+</section>
+<section id="likelihood" class="level2">
+<h2 class="anchored" data-anchor-id="likelihood">3 Likelihood</h2>
+<p>In this lab we will use likelihood methods to estimate parameters and test hypotheses. Likelihood methods are especially useful when modeling data having a probability distribution other than the normal distribution (e.g., binomial, exponential, etc).</p>
+<p><br></p>
+<section id="maximum-likelihood-estimate" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-likelihood-estimate">3.1 Maximum likelihood estimate</h3>
+<p>To estimate a parameter, we treat the data as given and vary the parameter to find that value for which the probability of obtaining the data is highest. This value is the maximum likelihood estimate of the parameter. The likelihood function is also used to obtain a likelihood-based confidence interval for the parameter. This confidence interval is a large-sample approximation, and may be inaccurate for small sample size, depending on the probability distribution of the data.</p>
+<p><br></p>
+</section>
+<section id="log-likelihood-ratio-test" class="level3">
+<h3 class="anchored" data-anchor-id="log-likelihood-ratio-test">3.2 Log-likelihood ratio test</h3>
+<p>The log-likelihood ratio test can be used to compare the fits of two nested models to the same data. The “full” model fits the data using the maximum likelihood estimates for the parameter(s) of interest (for example, a proportion p). The “reduced” model constrains the parameter values to represent a null hypothesis (for example, that p = 0.5, or that p is equal between two treatments). The G statistic is calculated as twice the difference between the log-likelihoods of the two models (“full” minus “reduced”):</p>
+<p><br></p>
+<p><code>G &lt;- 2 *(loglikefull - loglikereduced)</code></p>
+<p><br></p>
+<p><code>G</code> is referred to as the <strong>deviance</strong>. Under the null hypothesis, <code>G</code> has an approximate <code>χ2</code> distribution with degrees of freedom equal to the difference between the “full” and “reduced” models in the number of parameters estimated from data. We’ll work through an example below.</p>
+<p><br></p>
+</section>
+<section id="warmup" class="level3">
+<h3 class="anchored" data-anchor-id="warmup">3.3 Warmup</h3>
+<p>We’ll start by getting familiar with the commands in R to calculate probabilities.</p>
+<p><br></p>
+<ol type="1">
+<li><p>The probability of heads in a coin toss is 0.5. If you flip a coin 10 times, what is the probability of obtaining exactly 5 heads and 5 tails?</p></li>
+<li><p>The fraction of human babies born who are boys is about 0.512. If 20 newborn babies are randomly sampled, what is the probability that exactly 10 are boys?</p></li>
+<li><p>Plot the entire probability distribution for the number of boys in families having six children. Assume the probability that any one child is a boy is 0.512.</p></li>
+<li><p>If mortality is independent of age, then the probability of surviving X years after birth, and then dying in the X + 1st year, will follow a geometric distribution (<code>geom()</code>). X is any integer from 0 to infinity. If the probability of dying in any given year is 0.1, what fraction of individuals are expected to survive 10 years and then die in their 11th year?*</p></li>
+<li><p>Refer to the previous question. If the probability of death in any give year is 0.1, what fraction of individuals die before they reach their 6th birthday?**</p></li>
+<li><p>In an environment where prey are randomly distributed, the search time between discovered prey items will follow an exponential distribution. Imagine an environment in which the mean search time between prey items is 0.5 hours. What is the probability density corresponding to a search time of 2 hours?***</p></li>
+<li><p>Refer to the previous problem. Create a line plot of the exponential probability curve over most the range of possible values for search time between items (e.g., over the range of values between 0 and 5 hours).</p></li>
+</ol>
+<p>*0.03487</p>
+<p>**0.46856</p>
+<p>***0.03663</p>
+<p><br></p>
+</section>
+<section id="suggested-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions">3.4 Suggested solutions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">5</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">p=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2460938</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">10</span>, <span class="at">size=</span><span class="dv">20</span>, <span class="at">p=</span><span class="fl">0.512</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1751848</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size=</span><span class="dv">6</span>, <span class="at">p=</span><span class="fl">0.512</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(z) <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(z, <span class="at">space=</span><span class="dv">0</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"Probability"</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Number of boys"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dgeom</span>(<span class="dv">10</span>, <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03486784</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dgeom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>, <span class="fl">0.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.468559</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dexp</span>(<span class="dv">2</span>, <span class="at">rate=</span><span class="dv">1</span><span class="sc">/</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03663128</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the x-axis scale values</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">dexp</span>(x, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span><span class="fl">0.5</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y <span class="sc">~</span> x, <span class="at">type =</span> <span class="st">"l"</span>, </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>) <span class="co"># mere vanity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="example-left-handed-flowers" class="level2">
+<h2 class="anchored" data-anchor-id="example-left-handed-flowers">4 Example: Left-handed flowers</h2>
+<p>Individuals of most plant species are hermaphrodites (with both male and female sexual organs) and are therefore prone to inbreeding of the worst sort: having sex with themselves. The mud plantain, <em>Heteranthera multiflora</em> (a species of water hyacinth), has a simple mechanism to avoid such “selfing.” The style deflects to the left in some individuals and to the right in others. The anther is on the opposite side. Bees visiting a left-handed plant are dusted with pollen on their right side, which then is deposited on the styles of only right-handed plants visited later.</p>
+<p>To investigate the genetics of this variation, Jesson and Barrett (2002, Proc. Roy. Soc. Lond., Ser. B, Biol. Sci. 269: 1835-1839) crossed pure strains of left- and right-handed flowers, yielding only right-handed F1 offspring, which were then crossed with one another. Six of the resulting F2 offspring were left-handed, and 21 were right-handed. The expectation under a simple model of inheritance would be that their F2 offspring should consist of left- and right-handed individuals in a 1:3 ratio (i.e., 1/4 of the plants should be left-handed), assuming simple genetic assortment of 2 alleles for 1 locus. We will explore this hypothesis.</p>
+<p><br></p>
+<ol type="1">
+<li><p>Generate a vector that includes a range of possible values for the population proportion of left-handed flowers, p, from 0.01 to 0.99 in increments of 0.01.</p></li>
+<li><p>Given the results above, calculate the log-likelihood of each value for p in the F2 generation.</p></li>
+<li><p>Create a line plot of the log-likelihood against the range of values for p.&nbsp;What is the resulting curve called? Can you see approximately the value of p corresponding to the highest point of the curve? What is this value called?</p></li>
+<li><p>To get closer to this value, repeat steps (1) to (3) using a narrower range of values for p surrounding the highest point in the curve and an additional decimal point.</p></li>
+<li><p>Use your results to determine the maximum likelihood estimate of the proportion of left-handed F2 flowers.</p></li>
+<li><p>Provide a likelihood-based 95% confidence interval for the population proportion.*</p></li>
+<li><p>(Challenge) Use the bbmle package to find the maximum likelihood estimate and 95% confidence interval for the proportion of left-handed flowers. How do the results compare with your calculations?</p></li>
+<li><p>We can compare the fits of two models to these same data, to test the null hypothesis that the proportion of left-handed flowers in the cross is 1/4 (i.e., the proportion predicted by the simplest genetic model for flower handedness). To begin, obtain the log-likelihood corresponding to the maximum likelihood estimate of the proportion of left-handed flowers. This represents the fit of the “full” model to the data. This model estimated one parameter from the data (p, estimated using maximum likelihood).</p></li>
+<li><p>Now obtain the log-likelihood of the value for p specified by the null hypothesis. This represents the fit of the “reduced” model to the data. This reduced model estimated zero parameters from the data (instead, p was specified by the null hypothesis).</p></li>
+<li><p>Calculate the G statistic for the log-likelihood ratio test**. To obtain a P-value for the test, calculate the tail probability from the χ2 distribution as follows,</p></li>
+</ol>
+<p><code>1 - pchisq(G, df)</code></p>
+<p>where df is the degrees of freedom, calculated as the difference between the two models in the number of parameters estimated from the data.</p>
+<p><br></p>
+<ol start="11" type="1">
+<li>(Challenge) How similar is the result from your log-likelihood ratio test to that from an ordinary <code>χ2</code> goodness of fit test? Analyze the same data using the <code>chisq.test()</code> command in R and comment on the outcome.</li>
+</ol>
+<p>* 0.094 &lt; p &lt; 0.400</p>
+<p>** 0.114</p>
+<p><br></p>
+<section id="suggested-solutions-1" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-1">4.1 Suggested solutions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Vector</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>(p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="at">by =</span> <span class="fl">0.01</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10 0.11 0.12 0.13 0.14 0.15
+[16] 0.16 0.17 0.18 0.19 0.20 0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.30
+[31] 0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.40 0.41 0.42 0.43 0.44 0.45
+[46] 0.46 0.47 0.48 0.49 0.50 0.51 0.52 0.53 0.54 0.55 0.56 0.57 0.58 0.59 0.60
+[61] 0.61 0.62 0.63 0.64 0.65 0.66 0.67 0.68 0.69 0.70 0.71 0.72 0.73 0.74 0.75
+[76] 0.76 0.77 0.78 0.79 0.80 0.81 0.82 0.83 0.84 0.85 0.86 0.87 0.88 0.89 0.90
+[91] 0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. The log-likelihoods</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>(loglike <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">6</span>, <span class="at">size =</span> <span class="dv">27</span>, <span class="at">prob =</span> p, <span class="at">log =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] -15.243930 -11.298246  -9.080842  -7.572368  -6.453404  -5.581699
+ [7]  -4.881396  -4.307237  -3.830049  -3.429933  -3.092711  -2.807934
+[13]  -2.567680  -2.365809  -2.197469  -2.058761  -1.946514  -1.858112
+[19]  -1.791380  -1.744494  -1.715907  -1.704306  -1.708567  -1.727723
+[25]  -1.760941  -1.807500  -1.866777  -1.938231  -2.021394  -2.115862
+[31]  -2.221287  -2.337369  -2.463856  -2.600534  -2.747225  -2.903788
+[37]  -3.070110  -3.246107  -3.431725  -3.626934  -3.831728  -4.046126
+[43]  -4.270169  -4.503923  -4.747475  -5.000933  -5.264431  -5.538122
+[49]  -5.822186  -6.116825  -6.422266  -6.738763  -7.066595  -7.406073
+[55]  -7.757535  -8.121354  -8.497936  -8.887726  -9.291208  -9.708911
+[61] -10.141409 -10.589331 -11.053362 -11.534250 -12.032814 -12.549947
+[67] -13.086632 -13.643946 -14.223076 -14.825330 -15.452155 -16.105155
+[73] -16.786116 -17.497029 -18.240126 -19.017916 -19.833235 -20.689302
+[79] -21.589788 -22.538909 -23.541533 -24.603324 -25.730923 -26.932183
+[85] -28.216485 -29.595159 -31.082061 -32.694386 -34.453828 -36.388302
+[91] -38.534573 -40.942443 -43.681736 -46.854729 -50.619989 -55.243176
+[97] -61.222323 -69.675551 -84.170727</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Log-likelihood curve, showing maximum likelihood estimate</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(loglike <span class="sc">~</span> p, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">"Population proportion, p"</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Log-likelihood"</span>, </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">type=</span><span class="st">"l"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>) <span class="co"># Mere vanity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Narrower range of values for p</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="at">by =</span> <span class="fl">0.001</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>loglike <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">6</span>, <span class="at">size =</span> <span class="dv">27</span>, <span class="at">prob =</span> p, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(loglike <span class="sc">~</span> p, </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">"Population proportion, p"</span>, </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Log-likelihood"</span>, </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">type=</span><span class="st">"l"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>) <span class="co"># Mere vanity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Maximum likelihood estimate</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>phat <span class="ot">&lt;-</span> p[loglike <span class="sc">==</span> <span class="fu">max</span>(loglike)]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>phat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.222</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.92-unit support limits. </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This first method gives an interval slightly narrower than the real values</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(p[loglike <span class="sc">&gt;=</span> (<span class="fu">max</span>(loglike) <span class="sc">-</span> <span class="fl">1.92</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.095 0.399</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To be conservative, take outer edge of this interval</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(p[loglike <span class="sc">&lt;</span> (<span class="fu">max</span>(loglike) <span class="sc">-</span> <span class="fl">1.92</span>) <span class="sc">&amp;</span> p <span class="sc">&lt;</span> <span class="fl">0.222</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.094</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(p[loglike <span class="sc">&lt;</span> (<span class="fu">max</span>(loglike) <span class="sc">-</span> <span class="fl">1.92</span>) <span class="sc">&amp;</span> p <span class="sc">&gt;</span> <span class="fl">0.222</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load bblme, install if necessary</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"bbmle"</span>)) <span class="fu">install.packages</span>(<span class="st">"bbmle"</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bbmle)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>pNegLogLike <span class="ot">&lt;-</span> <span class="cf">function</span>(p){<span class="sc">-</span><span class="fu">dbinom</span>(<span class="dv">6</span>, <span class="at">size=</span><span class="dv">27</span>, p, <span class="at">log=</span><span class="cn">TRUE</span>)}</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># It is safe to ignore any warnings for now</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">mle2</span>(pNegLogLike, <span class="at">start=</span><span class="fu">list</span>(<span class="at">p=</span><span class="fl">0.5</span>))</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Maximum likelihood estimation
+
+Call:
+mle2(minuslogl = pNegLogLike, start = list(p = 0.5))
+
+Coefficients:
+  Estimate Std. Error z value    Pr(z)   
+p 0.222223   0.080009  2.7775 0.005479 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+-2 log L: 3.407838 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>pProfile <span class="ot">&lt;-</span> <span class="fu">profile</span>(z)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(pProfile, <span class="at">method=</span><span class="st">"uniroot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     2.5 %     97.5 % 
+0.09494227 0.39989553 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Log likelihood full model</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>LLfull <span class="ot">&lt;-</span> <span class="fu">max</span>(loglike)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>LLfull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.703923</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 9. Log likelihood reduced model</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>LLreduced <span class="ot">&lt;-</span> loglike[p <span class="sc">==</span> <span class="fl">0.25</span>]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>LLreduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.760941</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10. Log likelihood ratio statistic</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (LLfull <span class="sc">-</span> LLreduced)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1140369</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(G, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7355942</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 11. Using chisq.test</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">21</span>), <span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  c(6, 21)
+X-squared = 0.11111, df = 1, p-value = 0.7389</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="example-counting-elephants" class="level2">
+<h2 class="anchored" data-anchor-id="example-counting-elephants">5 Example Counting elephants</h2>
+<p>Mark-recapture is a method used to estimate population size when it is difficult to measure directly, which is based on random sampling and other certain assumptions. Even counting elephants in the wild is more challenging than you might think, at least when they live in dense forest and feed at night.</p>
+<p>Eggert et al.&nbsp;(2003. Molecular Ecology 12: 1389-1402) used mark-recapture methods to estimate the total number of forest elephants inhabiting Kakum National Park in Ghana without having to see a single one. They spent about two weeks in the park collecting elephant dung, from which they extracted elephant DNA. Using five genetic markers, they generated a unique DNA fingerprint for every elephant encountered in this way. Over the first seven days of collecting they identified 27 elephant individuals. Refer to these 27 elephants as marked. Over the next eight days they sampled 74 individuals, of which 15 had been previously <strong>marked</strong>. Refer to these 15 elephants as <strong>recaptured</strong>. We would like to use these numbers to estimate the total number of elephants in the park.</p>
+<p>We make the following assumptions,</p>
+<ul>
+<li><p>There were no births, deaths, immigrants, or emigrants while the study was being carried out, and</p></li>
+<li><p>The dung of every elephant, marked or unmarked, regardless of its output, had an equal chance of being sampled, and selection of each individual was independent of the others.</p></li>
+</ul>
+<p><br></p>
+<p>If these assumptions are true, the number of recaptured (i.e., previously marked) individuals X in the second sample should have a <a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution">“hypergeometric distribution”</a> with parameters <code>k</code> (the size of the second sample of individuals), m (total number of marked individuals in the population), and <code>n</code> (total number of unmarked individuals in the population).</p>
+<p>Using the appropriate command in <code>R</code> for the hypergeometric distribution, calculate the maximum likelihood estimate for the total number of elephants in the park. Note that the total number is <code>n + m</code>, where <code>n</code> is the unknown parameter to be estimated. Note also that only integer values for n are allowed, and that n cannot be smaller than <code>k - X</code>, the observed number of unmarked individuals in the second sample.*</p>
+<p>Calculate a likelihood-based 95% confidence interval for the total number of elephants.**</p>
+<p>* 133</p>
+<p>** 104 &lt; N &lt; 193</p>
+<p><br></p>
+<section id="answers" class="level3">
+<h3 class="anchored" data-anchor-id="answers">5.1 Answers</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Estimate N</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">27</span>   <span class="co"># total marked individuals in the population</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">74</span>   <span class="co"># size of second sample</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="dv">15</span>   <span class="co"># number of recaptures</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that N must be at least 86 = 74 - 15 + 27</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">86</span><span class="sc">:</span><span class="dv">200</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>loglike<span class="ot">&lt;-</span><span class="fu">dhyper</span>(<span class="dv">15</span>, <span class="dv">27</span>, N <span class="sc">-</span> <span class="dv">27</span>, <span class="dv">74</span>, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>loglike<span class="ot">&lt;-</span><span class="fu">dhyper</span>(X, m, <span class="at">n =</span> N <span class="sc">-</span> <span class="dv">27</span>, k, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(loglike <span class="sc">~</span> N, <span class="at">type=</span><span class="st">"l"</span>,</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">max</span>(loglike),</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> N[loglike <span class="sc">==</span> <span class="fu">max</span>(loglike)],</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">170</span>, <span class="at">y =</span> <span class="sc">-</span><span class="dv">12</span>,</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="st">"The intersection </span><span class="sc">\n</span><span class="st"> on the x-axis is our </span><span class="sc">\n</span><span class="st"> best guess of N"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 95% confidence interval</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> N[loglike <span class="sc">&lt;</span> <span class="fu">max</span>(loglike) <span class="sc">-</span> <span class="fl">1.92</span>]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>( <span class="fu">max</span>(z[z <span class="sc">&lt;</span> <span class="dv">133</span>]), <span class="fu">min</span>(z[z <span class="sc">&gt;</span> <span class="dv">133</span>]) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 104 193</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="example-voyaging-voles" class="level2">
+<h2 class="anchored" data-anchor-id="example-voyaging-voles">6 Example: Voyaging voles</h2>
+<p>The movement or dispersal distance of organisms is often modeled using the geometric distribution, assuming steps are discrete rather than continuous. For example, M. Sandell, J. Agrell, S. Erlinge, and J. Nelson (1991. Oecologia 86: 153-158) measured the distance separating the locations where individual voles, <em>Microtus agrestis</em>, were first trapped and the locations they were caught in a subsequent trapping period, in units of the number of home ranges.</p>
+<p>The data for 145 male and female voles are in the file <code>vole.csv</code>. The variable “dispersal” indicates the distance moved (number of home ranges) from the location of first capture. If the geometric model is adequate, then Pr[X = 0 home ranges moved] = p Pr[X = 1 home ranges moved] = (1-p)p Pr[X = 2 home ranges moved] = (1-p)2p and so on. p is the probability of success (capture) at each distance from the location of the first capture.</p>
+<p><br></p>
+<ol type="1">
+<li><p>Tabulate the number of home ranges moved by voles in this study. Use the data from both sexes combined.</p></li>
+<li><p>Using the appropriate commands in R, calculate the log-likelihood of each of a range of possible values for p, the parameter of the geometric distribution. Plot the log likelihood against p.</p></li>
+<li><p>Calculate the maximum-likelihood estimate of p and the likelihood based 95% confidence interval.</p></li>
+<li><p>Use the appropriate R command and the maximum likelihood estimate of p to calculate the predicted fraction of voles dispersing 0, 1, 2, 3, 4, and 5 home ranges.</p></li>
+<li><p>Use the result in (3) to calculate the expected number* of voles (out of 145) dispersing 0 - 5 home ranges, assuming a geometric distribution. How does this compare with the observed frequencies?</p></li>
+</ol>
+<p>* 124.41 17.67 2.51 0.36 0.05 0.01</p>
+<p><br></p>
+<section id="suggested-solutions-2" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-2">6.1 Suggested solutions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/vole.csv"</span>, </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     sex dispersal
+1 female         0
+2 female         0
+3 female         0
+4 female         0
+5 female         0
+6   male         0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Tabulate number of home ranges moved</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x<span class="sc">$</span>dispersal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1   2 
+123  20   2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. MLE of p</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="at">by =</span> <span class="fl">0.001</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using for loop</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make a vector to store values we will calculate</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>loglike <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(p)){</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    loglike[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dgeom</span>(x<span class="sc">$</span>dispersal, <span class="at">prob=</span>p[i], <span class="at">log =</span> <span class="cn">TRUE</span>) )</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p, loglike, <span class="at">type=</span><span class="st">"l"</span>, </span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">"p"</span>, <span class="at">ylab=</span><span class="st">"log likelihood"</span>,</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. MLE of p</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(loglike)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -69.0532</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>phat <span class="ot">&lt;-</span> p[loglike <span class="sc">==</span> <span class="fu">max</span>(loglike)]</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> p[loglike <span class="sc">&lt;</span> <span class="fu">max</span>(loglike) <span class="sc">-</span> <span class="fl">1.92</span>]</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>( <span class="fu">max</span>(z[z <span class="sc">&lt;</span> <span class="fl">0.858</span>]), <span class="fu">min</span>(z[z <span class="sc">&gt;</span> <span class="fl">0.858</span>]) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.800 0.906</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Expected numbers </span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>frac <span class="ot">&lt;-</span> <span class="fu">dgeom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">prob=</span>phat)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(frac,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8580 0.1218 0.0173 0.0025 0.0003 0.0000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> frac <span class="sc">*</span> <span class="fu">nrow</span>(x)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(expected, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 124.41  17.67   2.51   0.36   0.05   0.01</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the maximum likelihood estimate of p to calculate the </span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co"># predicted fraction of voles dispersing 0, 1, 2, 3, 4, and 5 home ranges.</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>frac <span class="ot">&lt;-</span> <span class="fu">dgeom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">prob=</span>phat)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(frac,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8580 0.1218 0.0173 0.0025 0.0003 0.0000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected distances moved</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">&lt;-</span> <span class="fu">nrow</span>(x) <span class="sc">*</span> frac</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(dist, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 124.41  17.67   2.51   0.36   0.05   0.01</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with observed:</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x<span class="sc">$</span>dispersal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1   2 
+123  20   2 </code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="example-life-of-bees" class="level2">
+<h2 class="anchored" data-anchor-id="example-life-of-bees">7 Example: Life of bees</h2>
+<p>The life span of individuals in a population are often approximated by an exponential distribution. To estimate the mortality rate of foraging honey bees, P. K. Visscher and R. Dukas (1997. Insectes Sociaux 44: 1-5) recorded the entire foraging life span of 33 individual worker bees in a local bee population in a natural setting. The 33 life spans (in hours) are in the file <code>bees.csv</code>.</p>
+<p><br></p>
+<ol type="1">
+<li><p>Plot the frequency distribution of lifespans of the 33 bees. Choose the option to display probability density instead of raw frequency. Does the distribution of lifespans resemble an exponential distribution (make sure to try different bin widths of the histogram)?</p></li>
+<li><p>Use the exponential approximation and maximum likelihood to estimate the hourly mortality rate of bees.*</p></li>
+<li><p>Using the maximum likelihood estimate, calculate the probability density for the exponential distribution across a range of values for lifespan. Draw this relationship between probability and lifespan on top of the frequency distribution you plotted in (1). Comment on the fit between the data and the exponential distribution you fitted. Is the exponential distribution a good fit to these data?</p></li>
+<li><p>Assume (for the purposes of this exercise) that an exponential probability model is reasonable. Calculate the likelihood-based 95% confidence interval for the mortality rate.**</p></li>
+<li><p>Calculate the maximum likelihood estimate for the mean lifespan, with approximate 95% likelihood based confidence interval.***</p></li>
+<li><p>(Optional) Use the bbmle package to find the maximum likelihood estimate and 95% confidence interval for the hourly mortality rate of bees. How do the results compare with your calculations?</p></li>
+</ol>
+<p><br></p>
+<p>* 0.036 / hour</p>
+<p>** (0.025, 0.050) / hour</p>
+<p>*** 27.8 hours; 95% CI: (20, 40) hours</p>
+<p><br></p>
+<section id="suggested-solutions-3" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-solutions-3">7.1 Suggested solutions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>bees <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/bees.csv"</span>, </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id hours
+1  1   7.1
+2  2   2.3
+3  3   9.6
+4  4  25.8
+5  5  14.6
+6  6  12.8</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Plot histogram</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bees<span class="sc">$</span>hours, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">prob =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.035</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">breaks =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. MLE of rate (in per hour units)</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>rate <span class="ot">&lt;-</span> <span class="fu">seq</span>(.<span class="dv">001</span>, .<span class="dv">1</span>, <span class="at">by=</span>.<span class="dv">001</span>)</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using for loop</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>loglike <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(rate)){</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>    loglike[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dexp</span>(bees<span class="sc">$</span>hours, <span class="at">rate =</span> rate[i], <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rate, loglike, <span class="at">type=</span><span class="st">"l"</span>,</span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(loglike)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -142.7838</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>mlrate <span class="ot">&lt;-</span> rate[loglike<span class="sc">==</span><span class="fu">max</span>(loglike)] <span class="co"># per hour</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>mlrate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.036</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Exponential might not be a great fit</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bees<span class="sc">$</span>hours, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>, <span class="at">prob =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.035</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">breaks =</span> <span class="dv">15</span>)</span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> bees<span class="sc">$</span>hours[<span class="fu">order</span>(bees<span class="sc">$</span>hours)]</span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">dexp</span>(x, <span class="at">rate =</span> <span class="fl">0.036</span>)</span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y, <span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="lab13-likelihood_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 95% confidence interval</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> rate[loglike <span class="sc">&lt;</span> <span class="fu">max</span>(loglike) <span class="sc">-</span> <span class="fl">1.92</span>]</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>( <span class="fu">max</span>(z[z <span class="sc">&lt;</span> mlrate]), <span class="fu">min</span>(z[z <span class="sc">&gt;</span> mlrate]) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.025 0.050</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Mean lifespan</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span>mlrate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27.77778</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="fu">c</span>( <span class="fu">max</span>(z[z <span class="sc">&lt;</span> mlrate]), <span class="fu">min</span>(z[z <span class="sc">&gt;</span> mlrate]) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40 20</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bbmle package</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"bbmle"</span>)) <span class="fu">install.packages</span>(<span class="st">"bbmle"</span>)</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bbmle)</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>pNegLogLike <span class="ot">&lt;-</span> <span class="cf">function</span>(rate){<span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dexp</span>(bees<span class="sc">$</span>hours, <span class="at">rate=</span>rate, <span class="at">log=</span><span class="cn">TRUE</span>))}</span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(</span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> <span class="fu">mle2</span>(pNegLogLike, <span class="at">start=</span><span class="fu">list</span>(<span class="at">rate =</span> <span class="dv">1</span>))</span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Maximum likelihood estimation
+
+Call:
+mle2(minuslogl = pNegLogLike, start = list(rate = 1))
+
+Coefficients:
+      Estimate Std. Error z value     Pr(z)    
+rate 0.0359102  0.0062512  5.7446 9.216e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+-2 log L: 285.5674 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>pProfile <span class="ot">&lt;-</span> <span class="fu">profile</span>(z)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(pProfile, <span class="at">method=</span><span class="st">"uniroot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     2.5 %     97.5 % 
+0.02500926 0.04959301 </code></pre>
+</div>
+</div>
 <p><br><br></p>
+</section>
 </section>
 <section id="harper-adams-data-science" class="level2">
 <h2 class="anchored" data-anchor-id="harper-adams-data-science">Harper Adams Data Science</h2>

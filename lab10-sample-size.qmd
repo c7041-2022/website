@@ -4,7 +4,7 @@ title: "Lab 10 Sample size"
 
 <br>
 
-<center>![Survivors](img/lab10-skellington){width="300"}</center>
+<center>![Survivors](img/lab10-skellington.png){width="300"}</center>
 
 ## 1 Objectives
 
