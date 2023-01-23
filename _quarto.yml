@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "R Stats Bootcamp"
+  title: "C7041 EDA"
   favicon: "img/c7041.png"
   sidebar:
     logo: "img/c7041.png"
